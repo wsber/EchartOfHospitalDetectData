@@ -276,6 +276,82 @@
 	</div>
 </body>
 <script>
+	var mychart = echarts.init(document.getElementById("one"))
+	var options={
+		toolbox:{
+			itemSize:15,
+			feature:{
+				saveAsImage:{},
+				dataView:{},
+				magicType: {
+						type: ['line', 'bar', 'stack']
+				},
+				restore:{}
+			}
+		},
+		tooltip:{
+			triggerOn:'click',
+			trigger:'axis'
+		},
+		grid:{
+			left:'10%',
+			top:50,
+			backgroundColor : 'transparent'
+		},
+		legend:{
+			data:[
+				{
+					name:'吉大一院',
+					icon:'circle',
+					textStyle:{color:'red'}
+				},
+				{
+					name:'吉大二院',
+					icon:'circle',
+					textStyle:{color:'red'}
+				},
+				{
+					name:'吉大三院',
+					icon:'circle',
+					textStyle:{color:'red'}
+				},{
+					name:'前卫医院',
+					icon:'circle',
+					textStyle:{color:'red'}
+				}
+			]
+		},
+		xAxis:{
+			type:'category',
+			// data:['吉大一院','吉大二院','吉大三院','前卫医院'],
+			data:['人均费用','住院人次','门诊人数'],
+		},
+		yAxis:{
+			type:'value',
+		},
+		//数据通常放在series属性当中
+		series:[{
+			type:'bar',
+			data:[10,29,50],
+			name:'吉大一院'
+		},{
+			type:'bar',
+			data:[10,29,50],
+			name:'吉大二院'
+		},{
+			type:'bar',
+			data:[10,29,50],
+			name:'吉大三院'
+		},{
+			type:'bar',
+			data:[10,29,50],
+			name:'前卫医院'
+		}]
+	}
+	<!--5.将配置项设置给echarts实例对象-->
+	mychart.setOption(options)
+
+
 	//第三步：初始化echarts实例对象
 	var mychart=echarts.init(document.getElementById("map"))
 		$.getJSON("https://geo.datav.aliyun.com/areas_v3/bound/220100_full.json",function(r){
@@ -307,5 +383,8 @@
 		mychart.setOption(options)
 		}
 		)
+
+
+
 </script>
 </html>
