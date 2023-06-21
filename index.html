@@ -185,8 +185,8 @@
 
 					</div>
 				</div>
-				<div class="box" id="two">
-					<div class="tit">版块标题</div>
+				<div class="box" >
+					<div class="tit">医院综合治疗水平雷达图</div>
 					<div class="boxnav"  id="two" style="height: 250px;">
 
 					</div>
@@ -197,27 +197,9 @@
 
 		<div class="box" style="padding: 20px 0;" >
 			<ul class="clearfix nav2 ">
-				<li style="width:25%;height: 200%;" id="six">
-					<div class="tit01">版块标题</div>
-					<div class="" id="">
-						<div style="float: left; width: 50%; height: 170px" id="fb01"></div>
-						<div style="float: left; width: 50%; height: 170px" id="fb02"></div>
-
-					</div>
-					<div class="leidanav leidanav2">
-						<ul class="clearfix">
-							<li><span>总人数</span>
-								<p>128</p>
-							</li>
-							<li><span>男职员</span>
-								<p>100</p>
-							</li>
-							<li><span>女职员</span>
-								<p>28</p>
-							</li>
-
-						</ul>
-					</div>
+				<li style="width:25%" >
+					<div class="tit01">医院患者年龄分布</div>
+					<div class="ftechart" id="six"></div>
 				</li>
 				<li style="width:25%" >
 					<div class="tit01">手术工作量</div>
@@ -227,15 +209,9 @@
 					<div class="tit01">药占比</div>
 					<div class="boxnav" id="four" style="height: 250px;">
 				</li>
-				<li style="width:25%" id="three">
-					<div class="tit01">版块标题</div>
-
-					<div class="" id="">
-						<div style="float: left; width: 50%; height: 200px" id="fb03"></div>
-						<div style="float: left; width: 50%; height: 200px" id="fb04"></div>
-
-					</div>
-
+				<li style="width:25%" >
+					<div class="tit01">各医院药储量</div>
+					<div class="boxnav" id="three" style="height: 250px;">
 				</li>
 			</ul>
 		</div>
@@ -245,8 +221,8 @@
 
 </body>
 <script>
+	//*** 各医院门诊住院费用图 - 1 ***
 	var mychart = echarts.init(document.getElementById("one"));
-
 	var options = {
 		// 调整图表布局
 		grid: {
@@ -379,9 +355,289 @@
 			itemHeight: 10
 		}
 	};
-
 	mychart.setOption(options);
 
+	//*** 医院综合治疗水平雷达图 - 2 ***
+	var mychart = echarts.init(document.getElementById("two"))
+	var options = {
+		color: ['#00c2ff', '#f9cf67', '#e92b77'],
+		legend: {
+			show: true,
+			// icon: 'circle',//图例形状
+			bottom: 0,
+			center: 0,
+			itemWidth: 14, // 图例标记的图形宽度。[ default: 25 ]
+			itemHeight: 14, // 图例标记的图形高度。[ default: 14 ]
+			itemGap: 21, // 图例每项之间的间隔。[ default: 10 ]横向布局时为水平间隔，纵向布局时为纵向间隔。
+			textStyle: {
+				fontSize: 14,
+				color: '#ade3ff'
+			},
+			data: ['一院', '二院', '三院'],
+		},
+		radar: [{
+			indicator: [{
+				text: '医生数量',
+				max: 100
+			},
+				{
+					text: '床位资源',
+					max: 100
+				},
+				{
+					text: '平均治疗费用',
+					max: 100
+				},
+				{
+					text: '新型药物研究',
+					max: 100
+				},
+				{
+					text: '就诊人数',
+					max: 100
+				}
+			],
+
+			textStyle: {
+				color: 'red'
+			},
+			center: ['50%', '50%'],
+			radius: 85,
+			startAngle: 90,
+			splitNumber: 3,
+			orient: 'horizontal', // 图例列表的布局朝向,默认'horizontal'为横向,'vertical'为纵向.
+			name: {
+				formatter: '{value}',
+				textStyle: {
+					fontSize: 12, //外圈标签字体大小
+					color: '#5b81cb' //外圈标签字体颜色
+				},
+				//让标签和图形在同一起点
+				padding: [0, -10]
+			},
+			splitArea: { // 坐标轴在 grid 区域中的分隔区域，默认不显示。
+				show: true,
+			},
+			axisLine: { //指向外圈文本的分隔线样式
+				lineStyle: {
+					color: '#153269'
+				}
+			},
+			splitLine: {
+				lineStyle: {
+					color: '#113865', // 分隔线颜色
+					width: 1, // 分隔线线宽
+				}
+			}
+		}, ],
+		series: [{
+			name: '雷达图',
+			type: 'radar',
+			itemStyle: {
+				emphasis: {
+					lineStyle: {
+						width: 4
+					}
+				}
+			},
+			data: [{
+				name: '一院',
+				value: [85, 65, 55, 90, 82],
+				areaStyle: {
+					normal: { // 单项区域填充样式
+						color: {
+							type: 'linear',
+							x: 0, //右
+							y: 0, //下
+							x2: 1, //左
+							y2: 1, //上
+							colorStops: [{
+								offset: 0,
+								color: '#00c2ff'
+							}, {
+								offset: 0.5,
+								color: 'rgba(0,0,0,0)'
+							}, {
+								offset: 1,
+								color: '#00c2ff'
+							}],
+							globalCoord: false
+						},
+						opacity: 1 // 区域透明度
+					}
+				},
+				symbolSize: 2.5, // 单个数据标记的大小，可以设置成诸如 10 这样单一的数字，也可以用数组分开表示宽和高，例如 [20, 10] 表示标记宽为20，高为10。
+				label: {                    // 单个拐点文本的样式设置
+					normal: {
+						show: true,       // 单个拐点文本的样式设置。[ default: false ]
+						position: 'top',  // 标签的位置。[ default: top ]
+						distance: 2,     // 距离图形元素的距离。当 position 为字符描述值（如 'top'、'insideRight'）时候有效。[ default: 5 ]
+						color: '#6692e2',   // 文字的颜色。如果设置为 'auto'，则为视觉映射得到的颜色，如系列色。[ default: "#fff" ]
+						fontSize: 12,           // 文字的字体大小
+						formatter:function(params) {
+							return params.value;
+						}
+					}
+				},
+				itemStyle: {
+					normal: { //图形悬浮效果
+						borderColor: '#00c2ff',
+						borderWidth: 2.5
+					}
+				},
+			}, {
+				name: '二院',
+				value: [50, 20, 45, 30, 75],
+				symbolSize: 2.5,
+				itemStyle: {
+					normal: {
+						borderColor: '#f9cf67',
+						borderWidth: 2.5,
+					}
+				},
+				areaStyle: {
+					normal: { // 单项区域填充样式
+						color: {
+							type: 'linear',
+							x: 0, //右
+							y: 0, //下
+							x2: 1, //左
+							y2: 1, //上
+							colorStops: [{
+								offset: 0,
+								color: '#f9cf67'
+							}, {
+								offset: 0.5,
+								color: 'rgba(0,0,0,0)'
+							}, {
+								offset: 1,
+								color: '#f9cf67'
+							}],
+							globalCoord: false
+						},
+						opacity: 1 // 区域透明度
+					}
+				},
+			}, {
+				name: '三院',
+				value: [37, 80, 12, 50, 25],
+				symbolSize: 2.5,
+				itemStyle: {
+					normal: {
+						borderColor: '#e92b77',
+						borderWidth: 2.5,
+					}
+				},
+				areaStyle: {
+					normal: { // 单项区域填充样式
+						color: {
+							type: 'linear',
+							x: 0, //右
+							y: 0, //下
+							x2: 1, //左
+							y2: 1, //上
+							colorStops: [{
+								offset: 0,
+								color: '#e92b77'
+							}, {
+								offset: 0.5,
+								color: 'rgba(0,0,0,0)'
+							}, {
+								offset: 1,
+								color: '#e92b77'
+							}],
+							globalCoord: false
+						},
+						opacity: 1 // 区域透明度
+					}
+				}
+			}]
+		}, ]
+	}
+	mychart.setOption(options)
+
+	//*** 医院药储量极坐标图 - 3 ***
+	var mychart = echarts.init(document.getElementById("three"))
+	var options = {
+		// //设置标题
+		// title: {
+		// 	text: '医院药储量',
+		// 	textStyle: {
+		// 		color: '#fff',
+		// 		fontSize: 14
+		// 	},
+		// 	left: 'center',
+		// },
+		color: ['#546ef3', '#a6cb09', '#f8bd00', '#ff6c00'],
+		legend: {
+			orient: 'vertical',
+			//设置颜色
+			right:0,
+			bottom:0,
+			textStyle: {
+				color: '#fff',
+				fontSize: 10
+			},
+
+		},
+		tooltip: {
+			show: true,
+			trigger: 'item',
+			formatter: "{a} : <br />{c}%",
+		},
+		polar: {
+			center: ['30%', '59%'],
+			radius: '300%' //图形大小
+		},
+		angleAxis: {
+			show: false,
+			startAngle: 90,
+			min: 0,
+			max: 100
+		},
+		radiusAxis: {
+			type: 'category',
+			show: false,
+			data: ["吉林大学第一医院", "吉林大学第二医院", "吉林大学第三医院"]
+		},
+		series: [
+			//设置字体颜色
+
+			{
+				type: "bar",
+				name: "吉林大学第一医院",
+				coordinateSystem: "polar",
+				barWidth: 20, //宽度
+				barCategoryGap: "40%",
+				// data: ["76.25","47.09","22.09"],
+				data: ["76.25"],
+			},
+			{
+				type: "bar",
+				name: "吉林大学第二医院",
+				coordinateSystem: "polar",
+				barWidth: 20,
+				barCategoryGap: "40%",
+				// data: ["14.09","55.09","27.09"]
+				data: ["95.09"]
+			},
+			{
+				type: "bar",
+				name: "吉林大学第三医院",
+				coordinateSystem: "polar",
+				barWidth: 20,
+				barCategoryGap: "40%",
+				// data: ["9.66","23.09","53.09"]
+				data: ["79.66"]
+			},
+		]
+
+	}
+	mychart.setOption(options)
+
+
+
+	//*** 药占比图 - 4 ***
 	var mychart = echarts.init(document.getElementById("four"));
 	var options = {
 		legend: {
@@ -478,9 +734,9 @@
 			}
 		],
 	};
-
 	mychart.setOption(options);
 
+	//*** 手术工作量图 - 5 ***
 	var mychart = echarts.init(document.getElementById("five"));
 	var options = {
 		// 调整图表布局
@@ -533,6 +789,239 @@
 		}
 	};
 	mychart.setOption(options);
+
+
+	//*** 医院就诊患者年龄分布图 - 6 ***
+	var mychart = echarts.init(document.getElementById("six"))
+	var options = {
+		// //设置标题
+		// title: {
+		// 	text: '医院就诊患者年龄分布',
+		// 	textStyle: {
+		// 		color: '#fff',
+		// 		fontSize: 14
+		// 	},
+		// 	left: 'center',
+		// },
+		tooltip: {
+			trigger: 'item',
+			formatter: "{a} <br/>{b} : {c}%"
+		},
+
+		//设置颜色
+		color: ['#546ef3', '#a6cb09', '#f8bd00', '#ff6c00'],
+
+		//调整漏斗图高度
+
+		series: [
+			{
+				name: '长春市',
+				type: 'funnel',
+				left: 'center',
+				width: '90%',
+				height:'70%',
+				// sort: 'ascending',
+				labelLine: {
+					normal: {
+						show: true,
+						length: 30,
+						lineStyle: {
+							type: 'solid',
+							color: "#6D480E"
+						},
+					}
+				},
+				itemStyle: {
+					normal: {
+						opacity: 0.5,
+						borderColor: '#000',
+						borderWidth: 2,
+						shadowBlur: 0,
+						shadowOffsetX: 0,
+						shadowOffsetY: 10,
+						shadowColor: 'rgba(0, 0, 0, .6)'
+					}
+				},
+				tooltip: {
+					show: false
+				},
+
+				data: [{
+					value: 190,
+				}, {
+					value: 130,
+				},
+					{
+						value: 180,
+					},
+					{
+						value: 200,
+					},
+				]
+			},
+
+			{
+				name: '长春市',
+				type: 'funnel',
+				left: 'center',
+				width: '80%',
+				height:'70%',
+				maxSize: '80%',
+				label: {
+					normal: {
+						position: 'inside',
+						formatter: '{c}%',
+						textStyle: {
+							color: '#fff',
+							fontSize:14,
+						},
+					},
+					emphasis: {
+						position: 'inside',
+						formatter: '{b}: {c}%'
+					}
+				},
+
+				itemStyle: {
+					normal: {
+						opacity: .9,
+						borderColor: '#B6883F',
+						borderWidth: 2,
+						shadowBlur: 0,
+						shadowOffsetX: 0,
+						shadowOffsetY: 10,
+						shadowColor: 'rgba(0, 0, 0, .6)'
+					}
+				},
+
+				data: [{
+					value: 24,
+					name: '12及以下儿童'
+				}, {
+					value: 15,
+					name: '12~25青少年'
+				},
+					{
+						value: 22,
+						name: '25~60中壮年'
+					},
+					{
+						value: 39,
+						name: '60岁以上中老年人'
+					},
+				]
+			}
+		]
+	}
+	mychart.setOption(options)
+
+	//*** 医院民意调查平行图 - 7 ***
+	var mychart = echarts.init(document.getElementById("seven"))
+	var options = {
+		//设置平行坐标系大小
+
+		parallelAxis: [{
+			dim: 0,
+			name: '效果',
+			type: 'category',
+			data: ['无效', '中等', '有效']
+
+		},
+			{
+				dim: 1,
+				name: '医生水平',
+				type: 'category',
+				data: ['差', '中', '好']
+			},
+			{
+				dim: 2,
+				name: '治疗费用',
+				interval:2000,
+
+			},
+			{
+				dim: 3,
+				name: '服务态度',
+				type: 'category',
+				data: ['差', '中', '好']
+
+			},
+			{
+				dim: 4,
+				name: '得分',
+				type: 'category',
+				data: ['中', '良', '优']
+			}
+		],
+		//设置坐标轴颜色
+		parallel: {
+			left: '5%',
+			right: '10%',
+			bottom: '10%',
+			top: '30%',
+			parallelAxisDefault: {
+				nameGap: 20,
+				nameTextStyle: {
+					color: '#fff',
+					fontSize: 12
+				},
+				axisLine: {
+					lineStyle: {
+						color: '#aaa',
+						width: 2
+					}
+				},
+				splitLine: {
+					show: false
+				},
+				//取消刻度
+				axisTick: {
+					show: false
+				},
+				axisLabel: {
+					textStyle: {
+						color: '#fff'
+					}
+				},
+
+			}
+		},
+		legend:{
+			textStyle:{
+				color:'#fff'
+			},
+			right:0,
+			top:0,
+			data:['一院','二院','三院']
+		},
+		series: [{
+			type: 'parallel',
+			name:'一院',
+			lineStyle: {
+				width: 4
+			},
+			data:
+					[['有效', '好', 7956, '好', '优']],
+		},{
+			type: 'parallel',
+			name:'二院',
+			lineStyle: {
+				width: 4
+			},
+			data:
+					[['中等', '中', 2857, '好', '优']],
+		},{
+			type: 'parallel',
+			name:'三院',
+			lineStyle: {
+				width: 4
+			},
+			data:
+					[['有效', '中', 4535, '中', '良']],
+		}
+		],
+	};
+	mychart.setOption(options)
 
 	var mychart = echarts.init(document.getElementById("eight"));
 	var options = {
@@ -666,131 +1155,6 @@
 		color: ['#546ef3', '#a6cb09', '#f8bd00']
 	};
 	mychart.setOption(options);
-
-
-
-	//第三步：初始化echarts实例对象
-	var mychart=echarts.init(document.getElementById("map"))
-		$.getJSON("https://geo.datav.aliyun.com/areas_v3/bound/220100_full.json",function(r){
-			//注册地图组件
-			echarts.registerMap("长春市",r)
-			//第四步：指定配置项和数据
-			var options={
-				geo:{
-					//名称一定要和上面registerMap注册的名称一致
-					map:"长春市",
-					itemStyle:{
-						areaColor:'white'
-					},
-					label:{
-						show:true
-					},
-					regions: [{
-					    name: '朝阳区',
-					    itemStyle: {
-					        areaColor: 'red',
-					        color: 'red'
-					    }
-					}]
-				},
-
-		}
-
-		//第五步：将配置项设置给echarts实例对象
-		mychart.setOption(options)
-		}
-		)
-
-
-    //*** 医院药储量 - 3 ***
-    var mychart = echarts.init(document.getElementById("three"))
-    var options = {
-
-        //设置标题
-        title: {
-            text: '医院药储量',
-            textStyle: {
-                color: '#fff',
-                fontSize: 14
-            },
-            left: 'center',
-        },
-        color: ['#546ef3', '#a6cb09', '#f8bd00', '#ff6c00'],
-        legend: {
-            orient: 'vertical',
-            //设置颜色
-            right:0,
-            bottom:0,
-            textStyle: {
-                color: '#fff',
-                fontSize: 10
-            },
-
-        },
-        tooltip: {
-            show: true,
-            trigger: 'item',
-            formatter: "{a} : <br />{c}%",
-        },
-        polar: {
-            center: ['30%', '60%'],
-            radius: '300%' //图形大小
-        },
-        angleAxis: {
-            show: false,
-            startAngle: 90,
-            min: 0,
-            max: 100
-        },
-        radiusAxis: {
-            type: 'category',
-            show: false,
-            data: ["吉林大学第一医院", "吉林大学第二医院", "吉林大学中日联谊医院","吉林省人民医院"]
-        },
-        series: [
-            //设置字体颜色
-
-            {
-                type: "bar",
-                name: "吉林大学第一医院",
-                coordinateSystem: "polar",
-                barWidth: 20, //宽度
-                barCategoryGap: "40%",
-                // data: ["76.25","47.09","22.09"],
-                data: ["76.25"],
-            },
-            {
-                type: "bar",
-                name: "吉林大学第二医院",
-                coordinateSystem: "polar",
-                barWidth: 20,
-                barCategoryGap: "40%",
-                // data: ["14.09","55.09","27.09"]
-                data: ["84.09"]
-            },
-            {
-                type: "bar",
-                name: "吉林大学中日联谊医院",
-                coordinateSystem: "polar",
-                barWidth: 20,
-                barCategoryGap: "40%",
-                // data: ["9.66","23.09","53.09"]
-                data: ["79.66"]
-            },
-            {
-                type: "bar",
-                name: "吉林省人民医院",
-                coordinateSystem: "polar",
-                barWidth: 20,
-                barCategoryGap: "40%",
-                // data: ["9.66","23.09","53.09"]
-                data: ["89.66"]
-            }
-        ]
-
-    }
-    //第五步：将配置项设置给echarts实例对象
-    mychart.setOption(options)
 
 
     //*** 地图部分 - 9 ***
