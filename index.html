@@ -283,9 +283,16 @@
 				saveAsImage:{},
 				dataView:{},
 				magicType: {
-						type: ['line', 'bar', 'stack']
+					type: ['line', 'bar', 'stack']
 				},
 				restore:{}
+			},
+			top: 0,
+			right: 20,
+			featureTitle: {
+				// 设置 toolbox 标题样式
+				color: '#333',
+				fontWeight: 'bold'
 			}
 		},
 		tooltip:{
@@ -294,7 +301,9 @@
 		},
 		grid:{
 			left:'10%',
-			top:50,
+			right:'10%',
+			top: '20%', // 将此值从 50 改为 20%
+			bottom: '20%', // 添加底部留白
 			backgroundColor : 'transparent'
 		},
 		legend:{
@@ -314,7 +323,10 @@
 					icon:'circle',
 					textStyle:{color:'red'}
 				}
-			]
+			],
+			// 设置 legend 的位置
+			top: 'bottom',
+			left: 'center'
 		},
 		xAxis:{
 			type:'category',
@@ -353,6 +365,13 @@
 					type: ['line', 'bar', 'stack']
 				},
 				restore:{}
+			},
+			top: 0,
+			right: 20,
+			featureTitle: {
+				// 设置 toolbox 标题样式
+				color: '#333',
+				fontWeight: 'bold'
 			}
 		},
 		tooltip:{
@@ -361,7 +380,9 @@
 		},
 		grid:{
 			left:'10%',
-			top:50,
+			right:'10%',
+			top: '20%', // 将此值从 50 改为 20%
+			bottom: '20%', // 添加底部留白
 			backgroundColor : 'transparent'
 		},
 		legend:{
@@ -381,7 +402,10 @@
 					icon:'circle',
 					textStyle:{color:'red'}
 				}
-			]
+			],
+			// 设置 legend 的位置
+			top: 'bottom',
+			left: 'center'
 		},
 		xAxis:{
 			type:'category',
