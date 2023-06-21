@@ -2,260 +2,268 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<title>某公司大数据监控平台</title>
-	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/echarts.min.js"></script>
-	<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-	<link rel="stylesheet" href="css/style.css">
+    <meta charset="utf-8">
+    <title>长春市医疗数据监控平台</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-	<div class="head clearfix">
+
+<div class="head clearfix">
 
 
-		<h1 class="pulll_left">某公司大数据监控平台</h1>
-		<div class="menu menu2 pulll_left">
-			<ul>
+    <h1 class="pulll_left">长春市医疗数据监控平台</h1>
+    <div class="menu menu2 pulll_left">
+        <ul>
 
-			</ul>
-		</div>
+        </ul>
+    </div>
 
-		<div class="time" id="showTime">2018/6/12 17:00:12</div>
-		<script>
-			var t = null;
-			t = setTimeout(time, 1000);//開始运行
-			function time() {
-				clearTimeout(t);//清除定时器
-				dt = new Date();
-				var y = dt.getFullYear();
-				var mt = dt.getMonth() + 1;
-				var day = dt.getDate();
-				var h = dt.getHours();//获取时
-				var m = dt.getMinutes();//获取分
-				var s = dt.getSeconds();//获取秒
-				document.getElementById("showTime").innerHTML = y + "/" + mt + "/" + day + " " + h + ":" + m + ":" + s + "";
-				t = setTimeout(time, 1000); //设定定时器，循环运行
-			}
+    <div class="time" id="showTime">2018/6/12 17:00:12</div>
+    <script>
+        var t = null;
+        t = setTimeout(time, 1000);//開始运行
+        function time() {
+            clearTimeout(t);//清除定时器
+            dt = new Date();
+            var y = dt.getFullYear();
+            var mt = dt.getMonth() + 1;
+            var day = dt.getDate();
+            var h = dt.getHours();//获取时
+            var m = dt.getMinutes();//获取分
+            var s = dt.getSeconds();//获取秒
+            document.getElementById("showTime").innerHTML = y + "/" + mt + "/" + day + " " + h + ":" + m + ":" + s + "";
+            t = setTimeout(time, 1000); //设定定时器，循环运行
+        }
 
-		</script>
-	</div>
-	<div class="mainbox">
+    </script>
+</div>
+<div class="mainbox">
 
-		<ul class="clearfix nav1">
-			<li style="width: 22%">
-				<div class="box">
-					<div class="tit">版块标题1</div>
-					<div class="boxnav" style="height: 200px;">
-						<table class="table1" width="100%" border="0" cellspacing="0" cellpadding="0">
-							<tbody>
-								<tr>
-									<th>业务类型</th>
-									<th>计划完成</th>
-									<th>实际完成</th>
-									<th>增长率</th>
-
-
-								</tr>
-								<tr>
-									<td>类型1</td>
-									<td><span class="text-w">1000万</span></td>
-									<td><span class="text-b">900万</span></td>
-									<td>
-										<div class="text-d">↑12%</div>
-									</td>
-								</tr>
-								<tr>
-									<td>类型1</td>
-									<td><span class="text-w">1000万</span></td>
-									<td><span class="text-b">900万</span></td>
-									<td>
-										<div class="text-s">↓12%</div>
-									</td>
-								</tr>
-								<tr>
-									<td>类型1</td>
-									<td><span class="text-w">1000万</span></td>
-									<td><span class="text-b">900万</span></td>
-									<td>
-										<div class="text-d">↑12%</div>
-									</td>
-								</tr>
-								<tr>
-									<td>类型1</td>
-									<td><span class="text-w">1000万</span></td>
-									<td><span class="text-b">900万</span></td>
-									<td>
-										<div class="text-s">↓12%</div>
-									</td>
-								</tr>
-								<tr>
-									<td>类型1</td>
-									<td><span class="text-w">1000万</span></td>
-									<td><span class="text-b">900万</span></td>
-									<td>
-										<div class="text-d">↑12%</div>
-									</td>
-								</tr>
-
-							</tbody>
-						</table>
-					</div>
-				</div>
-				<div class="box">
-					<div class="tit">版块标题</div>
-					<div class="boxnav" style="height: 250px;">
-						<div class="" style="height: 190px" id="seven"></div>
-						<div class="leidanav">
-							<ul class="clearfix">
-								<li><span>文本1</span>
-									<p>43</p>
-								</li>
-								<li><span>文本2</span>
-									<p>100</p>
-								</li>
-								<li><span>文本3</span>
-									<p>28</p>
-								</li>
-								<li><span>文本4</span>
-									<p>3</p>
-								</li>
-								<li><span>文本5</span>
-									<p>150</p>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</li>
-			<li style="width: 56%">
-
-				<div class="box">
-					<div class="boxnav mapc" style="height: 550px; position: relative">
-						<div class="mapnav">
-							<ul>
-								<li>
-									<div><span>数据1</span>
-										<p>40%</p>
-									</div>
-								</li>
-								<li>
-									<div><span>数据2</span>
-										<p>12%</p>
-									</div>
-								</li>
-								<li>
-									<div><span>数据3</span>
-										<p>80</p>
-									</div>
-								</li>
-								<li>
-									<div><span>数据4</span>
-										<p>124</p>
-									</div>
-								</li>
-								<li>
-									<div><span>数据5</span>
-										<p>10%</p>
-									</div>
-								</li>
-							</ul>
-						</div>
-						<div class="mapnav2">
-
-							<div class="box" style=" width: 280px">
-								<div class="tit">版块标题</div>
-								<div class="boxnav" style="height: 220px ;" id="eight">
-								</div>
-							</div>
-						</div>
-						<div class="map" id="map">
-
-						<!-- 表示地图部分 -->
-						</div>
-					</div>
-				</div>
-
-			</li>
-			<li style="width: 22%">
-
-				<div class="box">
-					<div class="tit">各医院门诊住院费用</div>
-					<div class="boxnav" id="one" style="height: 250px;">
-
-					</div>
-				</div>
-				<div class="box" id="two">
-					<div class="tit">版块标题</div>
-					<div class="boxnav"  id="two" style="height: 250px;">
-
-					</div>
-				</div>
-
-			</li>
-		</ul>
-
-		<div class="box" style="padding: 20px 0;" >
-			<ul class="clearfix nav2 ">
-				<li style="width:25%;height: 200%;" id="six">
-					<div class="tit01">版块标题</div>
-					<div class="" id="">
-						<div style="float: left; width: 50%; height: 170px" id="fb01"></div>
-						<div style="float: left; width: 50%; height: 170px" id="fb02"></div>
-
-					</div>
-					<div class="leidanav leidanav2">
-						<ul class="clearfix">
-							<li><span>总人数</span>
-								<p>128</p>
-							</li>
-							<li><span>男职员</span>
-								<p>100</p>
-							</li>
-							<li><span>女职员</span>
-								<p>28</p>
-							</li>
-
-						</ul>
-					</div>
-				</li>
-				<li style="width:25%" id="five">
-					<div class="tit01">版块标题</div>
-					<div class="ftechart" id="echart4"></div>
-				</li>
-				<li style="width:25%" id="four">
-					<div class="tit01">版块标题</div>
-					<div class="" style="height:100%;display: flex; align-items: center;">
-						<div style="float: left; width: 50%; height: 100%" class="wancheng">
-							<div><span>已完成人数</span>
-								<h3>1835<i>人</i></h3>
-							</div>
-							<div class="yuan">
-								<span>19%</span>
-							</div>
-						</div>
-						<div style="float: left; width: 50%; height: 50%" id="myd1"></div>
+    <ul class="clearfix nav1">
+        <li style="width: 22%">
+            <div class="box">
+                <div class="tit">版块标题1</div>
+                <div class="boxnav" style="height: 200px;">
+                    <table class="table1" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tbody>
+                        <tr>
+                            <th>业务类型</th>
+                            <th>计划完成</th>
+                            <th>实际完成</th>
+                            <th>增长率</th>
 
 
+                        </tr>
+                        <tr>
+                            <td>类型1</td>
+                            <td><span class="text-w">1000万</span></td>
+                            <td><span class="text-b">900万</span></td>
+                            <td>
+                                <div class="text-d">↑12%</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>类型1</td>
+                            <td><span class="text-w">1000万</span></td>
+                            <td><span class="text-b">900万</span></td>
+                            <td>
+                                <div class="text-s">↓12%</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>类型1</td>
+                            <td><span class="text-w">1000万</span></td>
+                            <td><span class="text-b">900万</span></td>
+                            <td>
+                                <div class="text-d">↑12%</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>类型1</td>
+                            <td><span class="text-w">1000万</span></td>
+                            <td><span class="text-b">900万</span></td>
+                            <td>
+                                <div class="text-s">↓12%</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>类型1</td>
+                            <td><span class="text-w">1000万</span></td>
+                            <td><span class="text-b">900万</span></td>
+                            <td>
+                                <div class="text-d">↑12%</div>
+                            </td>
+                        </tr>
 
-					</div>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="box">
+                <div class="tit">版块标题</div>
+                <div class="boxnav" style="height: 250px;">
+                    <div class="" style="height: 190px" id="seven"></div>
+                    <div class="leidanav">
+                        <ul class="clearfix">
+                            <li><span>文本1</span>
+                                <p>43</p>
+                            </li>
+                            <li><span>文本2</span>
+                                <p>100</p>
+                            </li>
+                            <li><span>文本3</span>
+                                <p>28</p>
+                            </li>
+                            <li><span>文本4</span>
+                                <p>3</p>
+                            </li>
+                            <li><span>文本5</span>
+                                <p>150</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li style="width: 56%">
 
-				</li>
-				<li style="width:25%" id="three">
-					<div class="tit01">版块标题</div>
+            <div class="box">
+                <div class="boxnav mapc" style="height: 550px; position: relative">
+                    <div class="mapnav">
+                        <ul>
+                            <li>
+                                <div><span>数据1</span>
+                                    <p>40%</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div><span>数据2</span>
+                                    <p>12%</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div><span>数据3</span>
+                                    <p>80</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div><span>数据4</span>
+                                    <p>124</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div><span>数据5</span>
+                                    <p>10%</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mapnav2">
 
-					<div class="" id="">
-						<div style="float: left; width: 50%; height: 200px" id="fb03"></div>
-						<div style="float: left; width: 50%; height: 200px" id="fb04"></div>
+                        <div class="box">
+                            <div class="tit">版块标题</div>
+                            <div class="boxnav" style="height: 130px;" id="eight">
 
-					</div>
+                            </div>
+                            <div class="leidanav leidanav3" style="margin-bottom: 15px;">
+                                <ul class="clearfix">
+                                    <li><span>业务笔数</span>
+                                        <p>128</p>
+                                    </li>
+                                    <li><span>业务收益</span>
+                                        <p>100</p>
+                                    </li>
+                                    <li><span>业务笔数</span>
+                                        <p>28</p>
+                                    </li>
+                                    <li><span>业务收益</span>
+                                        <p>28</p>
+                                    </li>
+                                </ul>
+                            </div>
 
-				</li>
-			</ul>
-		</div>
+                        </div>
+                    </div>
+                    <div class="map" id="map">
+
+                        <!-- 表示地图部分 -->
+                    </div>
+                </div>
+            </div>
+
+        </li>
+        <li style="width: 22%">
+
+            <div class="box">
+                <div class="tit">版块标题</div>
+                <div class="boxnav" id="one" style="height: 200px;">
+
+                </div>
+            </div>
+            <div class="box">
+                <div class="tit">版块标题</div>
+                <div class="boxnav" id="two" style="height: 250px;">
+
+                </div>
+            </div>
+
+        </li>
+    </ul>
+
+    <div class="box" style="padding: 20px 0;">
+        <ul class="clearfix nav2 ">
+            <li style="width:25%;height: 200%;" id="six">
+                <div class="tit01">版块标题</div>
+                <div class="" id="">
+                    <div style="float: left; width: 50%; height: 170px" id="fb01"></div>
+                    <div style="float: left; width: 50%; height: 170px" id="fb02"></div>
+
+                </div>
+                <div class="leidanav leidanav2">
+                    <ul class="clearfix">
+                        <li><span>总人数</span>
+                            <p>128</p>
+                        </li>
+                        <li><span>男职员</span>
+                            <p>100</p>
+                        </li>
+                        <li><span>女职员</span>
+                            <p>28</p>
+                        </li>
+
+                    </ul>
+                </div>
+            </li>
+            <li style="width:25%" id="five">
+                <div class="tit01">版块标题</div>
+                <div class="ftechart" id="echart4"></div>
+            </li>
+            <li style="width:25%" id="four">
+                <div class="tit01">版块标题</div>
+                <div class="" style="height:100%;display: flex; align-items: center;">
+                    <div style="float: left; width: 50%; height: 100%" class="wancheng">
+                        <div><span>已完成人数</span>
+                            <h3>1835<i>人</i></h3>
+                        </div>
+                        <div class="yuan">
+                            <span>19%</span>
+                        </div>
+                    </div>
+                    <div style="float: left; width: 50%; height: 50%" id="myd1"></div>
+                </div>
+            </li>
+            <li style="width:25%" id="three">
+
+            </li>
+        </ul>
+    </div>
 
 
-	</div>
+</div>
 </body>
 <script>
 	var mychart = echarts.init(document.getElementById("one"))
@@ -479,6 +487,217 @@
 		}
 		)
 
+
+    //*** 医院药储量 - 3 ***
+    var mychart = echarts.init(document.getElementById("three"))
+    var options = {
+
+        //设置标题
+        title: {
+            text: '医院药储量',
+            textStyle: {
+                color: '#fff',
+                fontSize: 14
+            },
+            left: 'center',
+        },
+        color: ['#546ef3', '#a6cb09', '#f8bd00', '#ff6c00'],
+        legend: {
+            orient: 'vertical',
+            //设置颜色
+            right:0,
+            bottom:0,
+            textStyle: {
+                color: '#fff',
+                fontSize: 10
+            },
+
+        },
+        tooltip: {
+            show: true,
+            trigger: 'item',
+            formatter: "{a} : <br />{c}%",
+        },
+        polar: {
+            center: ['30%', '60%'],
+            radius: '300%' //图形大小
+        },
+        angleAxis: {
+            show: false,
+            startAngle: 90,
+            min: 0,
+            max: 100
+        },
+        radiusAxis: {
+            type: 'category',
+            show: false,
+            data: ["吉林大学第一医院", "吉林大学第二医院", "吉林大学中日联谊医院","吉林省人民医院"]
+        },
+        series: [
+            //设置字体颜色
+
+            {
+                type: "bar",
+                name: "吉林大学第一医院",
+                coordinateSystem: "polar",
+                barWidth: 20, //宽度
+                barCategoryGap: "40%",
+                // data: ["76.25","47.09","22.09"],
+                data: ["76.25"],
+            },
+            {
+                type: "bar",
+                name: "吉林大学第二医院",
+                coordinateSystem: "polar",
+                barWidth: 20,
+                barCategoryGap: "40%",
+                // data: ["14.09","55.09","27.09"]
+                data: ["84.09"]
+            },
+            {
+                type: "bar",
+                name: "吉林大学中日联谊医院",
+                coordinateSystem: "polar",
+                barWidth: 20,
+                barCategoryGap: "40%",
+                // data: ["9.66","23.09","53.09"]
+                data: ["79.66"]
+            },
+            {
+                type: "bar",
+                name: "吉林省人民医院",
+                coordinateSystem: "polar",
+                barWidth: 20,
+                barCategoryGap: "40%",
+                // data: ["9.66","23.09","53.09"]
+                data: ["89.66"]
+            }
+        ]
+
+    }
+    //第五步：将配置项设置给echarts实例对象
+    mychart.setOption(options)
+
+
+    //*** 地图部分 - 9 ***
+    $.getJSON("https://geo.datav.aliyun.com/areas_v3/bound/220100_full.json", function (r) {
+            //注册地图组件
+            echarts.registerMap("长春市", r)
+            var sixth = document.getElementById("map")
+            var mychart = echarts.init(sixth)
+            var options = {
+                visualMap: {
+                    //分段型视觉映射组件
+                    type: 'piecewise',
+                    max: 1000,
+                    min: 0,
+                    //是否显示拖拽用的手柄（手柄能拖拽调整选中范围）
+                    calculable: true,
+                    //定义图例的范围
+                    text: ['高', '低'],
+                    //位置设置在盒子的右侧
+                    orient: 'vertical',
+                    right: 0,
+                    top: 'bottom',
+                    //设置标签颜色
+                    textStyle: {
+                        color: '#fff'
+                    },
+                    showLabel: true,
+                    pieces: [{
+                        gt: 100,
+                        label: '>100人',
+                        color: '#ff0000'
+                    }, {
+                        gte: 10,
+                        lte: 100,
+                        label: '10-100人',
+                        color: '#ff5428'
+                    }, {
+                        gt: 1,
+                        lte: 9,
+                        label: '1-9人',
+                        color: '#ff8c71'
+                    }, {
+                        lte: 0,
+                        label: '=0人',
+                        color: '#fff'
+                    }
+                    ]
+                },
+                series: {
+                    type: 'map',
+                    map: "长春市",
+                    label: {
+                        show: true,
+                        formatter: function (r) {
+                            if (r.name == '公主岭市') {
+                                return r.name.substr(0, 3)
+                            } else {
+                                return r.name.substr(0, 2)
+                            }
+                        }
+                    },
+                    data: [
+                        {
+                            name: '南关区',
+                            value: 45
+                        },
+                        {
+                            name: '朝阳区',
+                            value: 321
+                        },
+                        {
+                            name: '绿园区',
+                            value: 96
+                        },
+                        {
+                            name: '二道区',
+                            value: 111
+                        },
+                        {
+                            name: '双阳区',
+                            value: 4
+                        },
+                        {
+                            name: '九台区',
+                            value: 186
+                        },
+                        {
+                            name: '农安县',
+                            value: 143
+                        },
+                        {
+                            name: '榆树市',
+                            value: 0
+                        },
+                        {
+                            name: '德惠市',
+                            value: 34
+                        },
+                        {
+                            name: '公主岭市',
+                            value: 25
+                        },
+                        {
+                            name: '宽城区',
+                            value: 7
+                        },
+                    ],
+                },
+
+                //鼠标移动到地区的时候，显示详细内容
+                tooltip: {
+                    trigger: 'item',
+                    formatter: function (r) {
+                        return r.name + "<br/>" + "人数：" + r.value
+                    }
+                },
+
+            }
+            mychart.setOption(options)
+        }
+    )
 
 
 </script>
