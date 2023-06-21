@@ -2,704 +2,1327 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<title>长春市医院治疗数据监控平台</title>
-	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/echarts.min.js"></script>
-	<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-	<link rel="stylesheet" href="css/style.css">
+    <meta charset="utf-8">
+    <title>长春市医院治疗数据监控平台</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/echarts.min.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-	<div class="head clearfix">
+<div class="head clearfix">
 
 
-		<h1 class="pulll_left">长春市医院治疗数据监控平台</h1>
-		<div class="menu menu2 pulll_left">
-			<ul>
+    <h1 class="pulll_left">长春市医院治疗数据监控平台</h1>
+    <div class="menu menu2 pulll_left">
+        <ul>
 
-			</ul>
-		</div>
+        </ul>
+    </div>
 
-		<div class="time" id="showTime">2018/6/12 17:00:12</div>
-		<script>
-			var t = null;
-			t = setTimeout(time, 1000);//開始运行
-			function time() {
-				clearTimeout(t);//清除定时器
-				dt = new Date();
-				var y = dt.getFullYear();
-				var mt = dt.getMonth() + 1;
-				var day = dt.getDate();
-				var h = dt.getHours();//获取时
-				var m = dt.getMinutes();//获取分
-				var s = dt.getSeconds();//获取秒
-				document.getElementById("showTime").innerHTML = y + "/" + mt + "/" + day + " " + h + ":" + m + ":" + s + "";
-				t = setTimeout(time, 1000); //设定定时器，循环运行
-			}
+    <div class="time" id="showTime">2018/6/12 17:00:12</div>
+    <script>
+        var t = null;
+        t = setTimeout(time, 1000);//開始运行
+        function time() {
+            clearTimeout(t);//清除定时器
+            dt = new Date();
+            var y = dt.getFullYear();
+            var mt = dt.getMonth() + 1;
+            var day = dt.getDate();
+            var h = dt.getHours();//获取时
+            var m = dt.getMinutes();//获取分
+            var s = dt.getSeconds();//获取秒
+            document.getElementById("showTime").innerHTML = y + "/" + mt + "/" + day + " " + h + ":" + m + ":" + s + "";
+            t = setTimeout(time, 1000); //设定定时器，循环运行
+        }
 
-		</script>
-	</div>
-	<div class="mainbox">
+    </script>
+</div>
+<div class="mainbox">
 
-		<ul class="clearfix nav1">
-			<li style="width: 22%">
-				<div class="box">
-					<div class="tit">版块标题1</div>
-					<div class="boxnav" style="height: 200px;">
-						<table class="table1" width="100%" border="0" cellspacing="0" cellpadding="0">
-							<tbody>
-								<tr>
-									<th>业务类型</th>
-									<th>计划完成</th>
-									<th>实际完成</th>
-									<th>增长率</th>
-
-
-								</tr>
-								<tr>
-									<td>类型1</td>
-									<td><span class="text-w">1000万</span></td>
-									<td><span class="text-b">900万</span></td>
-									<td>
-										<div class="text-d">↑12%</div>
-									</td>
-								</tr>
-								<tr>
-									<td>类型1</td>
-									<td><span class="text-w">1000万</span></td>
-									<td><span class="text-b">900万</span></td>
-									<td>
-										<div class="text-s">↓12%</div>
-									</td>
-								</tr>
-								<tr>
-									<td>类型1</td>
-									<td><span class="text-w">1000万</span></td>
-									<td><span class="text-b">900万</span></td>
-									<td>
-										<div class="text-d">↑12%</div>
-									</td>
-								</tr>
-								<tr>
-									<td>类型1</td>
-									<td><span class="text-w">1000万</span></td>
-									<td><span class="text-b">900万</span></td>
-									<td>
-										<div class="text-s">↓12%</div>
-									</td>
-								</tr>
-								<tr>
-									<td>类型1</td>
-									<td><span class="text-w">1000万</span></td>
-									<td><span class="text-b">900万</span></td>
-									<td>
-										<div class="text-d">↑12%</div>
-									</td>
-								</tr>
-
-							</tbody>
-						</table>
-					</div>
-				</div>
-				<div class="box">
-					<div class="tit">版块标题</div>
-					<div class="boxnav" style="height: 250px;">
-						<div class="" style="height: 190px" id="seven"></div>
-						<div class="leidanav">
-							<ul class="clearfix">
-								<li><span>文本1</span>
-									<p>43</p>
-								</li>
-								<li><span>文本2</span>
-									<p>100</p>
-								</li>
-								<li><span>文本3</span>
-									<p>28</p>
-								</li>
-								<li><span>文本4</span>
-									<p>3</p>
-								</li>
-								<li><span>文本5</span>
-									<p>150</p>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</li>
-			<li style="width: 56%">
-
-				<div class="box">
-					<div class="boxnav mapc" style="height: 550px; position: relative">
-						<div class="mapnav">
-							<ul>
-								<li>
-									<div><span>数据1</span>
-										<p>40%</p>
-									</div>
-								</li>
-								<li>
-									<div><span>数据2</span>
-										<p>12%</p>
-									</div>
-								</li>
-								<li>
-									<div><span>数据3</span>
-										<p>80</p>
-									</div>
-								</li>
-								<li>
-									<div><span>数据4</span>
-										<p>124</p>
-									</div>
-								</li>
-								<li>
-									<div><span>数据5</span>
-										<p>10%</p>
-									</div>
-								</li>
-							</ul>
-						</div>
-						<div class="mapnav2">
-
-							<div class="box" style=" width: 280px">
-								<div class="tit">各医院就诊人数</div>
-								<div class="boxnav" style="height: 220px ;" id="eight">
-								</div>
-							</div>
-						</div>
-						<div class="map" id="map">
-
-						<!-- 表示地图部分 -->
-						</div>
-					</div>
-				</div>
-
-			</li>
-			<li style="width: 22%">
-
-				<div class="box">
-					<div class="tit">各医院门诊住院费用</div>
-					<div class="boxnav" id="one" style="height: 250px;">
-
-					</div>
-				</div>
-				<div class="box" id="two">
-					<div class="tit">版块标题</div>
-					<div class="boxnav"  id="two" style="height: 250px;">
-
-					</div>
-				</div>
-
-			</li>
-		</ul>
-
-		<div class="box" style="padding: 20px 0;" >
-			<ul class="clearfix nav2 ">
-				<li style="width:25%;height: 200%;" id="six">
-					<div class="tit01">版块标题</div>
-					<div class="" id="">
-						<div style="float: left; width: 50%; height: 170px" id="fb01"></div>
-						<div style="float: left; width: 50%; height: 170px" id="fb02"></div>
-
-					</div>
-					<div class="leidanav leidanav2">
-						<ul class="clearfix">
-							<li><span>总人数</span>
-								<p>128</p>
-							</li>
-							<li><span>男职员</span>
-								<p>100</p>
-							</li>
-							<li><span>女职员</span>
-								<p>28</p>
-							</li>
-
-						</ul>
-					</div>
-				</li>
-				<li style="width:25%" >
-					<div class="tit01">手术工作量</div>
-					<div class="ftechart" id="five"></div>
-				</li>
-				<li style="width:25%" >
-					<div class="tit01">药占比</div>
-					<div class="boxnav" id="four" style="height: 250px;">
-				</li>
-				<li style="width:25%" id="three">
-					<div class="tit01">版块标题</div>
-
-					<div class="" id="">
-						<div style="float: left; width: 50%; height: 200px" id="fb03"></div>
-						<div style="float: left; width: 50%; height: 200px" id="fb04"></div>
-
-					</div>
-
-				</li>
-			</ul>
-		</div>
+    <ul class="clearfix nav1">
+        <li style="width: 22%">
+            <div class="box">
+                <div class="tit">版块标题1</div>
+                <div class="boxnav" style="height: 200px;">
+                    <table class="table1" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tbody>
+                        <tr>
+                            <th>业务类型</th>
+                            <th>计划完成</th>
+                            <th>实际完成</th>
+                            <th>增长率</th>
 
 
-	</div>
+                        </tr>
+                        <tr>
+                            <td>类型1</td>
+                            <td><span class="text-w">1000万</span></td>
+                            <td><span class="text-b">900万</span></td>
+                            <td>
+                                <div class="text-d">↑12%</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>类型1</td>
+                            <td><span class="text-w">1000万</span></td>
+                            <td><span class="text-b">900万</span></td>
+                            <td>
+                                <div class="text-s">↓12%</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>类型1</td>
+                            <td><span class="text-w">1000万</span></td>
+                            <td><span class="text-b">900万</span></td>
+                            <td>
+                                <div class="text-d">↑12%</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>类型1</td>
+                            <td><span class="text-w">1000万</span></td>
+                            <td><span class="text-b">900万</span></td>
+                            <td>
+                                <div class="text-s">↓12%</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>类型1</td>
+                            <td><span class="text-w">1000万</span></td>
+                            <td><span class="text-b">900万</span></td>
+                            <td>
+                                <div class="text-d">↑12%</div>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="box" style="height: 356px;" >
+                <div class="tit">医院治疗水平民意调查</div>
+                <div class="boxnav" style="height: 262px;">
+                    <div class="" style="height: 262px" id="seven"></div>
+                    <div class="leidanav">
+                        <ul class="clearfix">
+                            <li><span>文本1</span>
+                                <p>43</p>
+                            </li>
+                            <li><span>文本2</span>
+                                <p>100</p>
+                            </li>
+                            <li><span>文本3</span>
+                                <p>28</p>
+                            </li>
+                            <li><span>文本4</span>
+                                <p>3</p>
+                            </li>
+                            <li><span>文本5</span>
+                                <p>150</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li style="width: 56%">
+
+            <div class="box">
+                <div class="boxnav mapc" style="height: 610px; position: relative">
+                    <div class="mapnav">
+                        <ul>
+                            <li>
+                                <div><span>数据1</span>
+                                    <p>40%</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div><span>数据2</span>
+                                    <p>12%</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div><span>数据3</span>
+                                    <p>80</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div><span>数据4</span>
+                                    <p>124</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div><span>数据5</span>
+                                    <p>10%</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mapnav2">
+
+                        <div class="box" style=" width: 280px">
+                            <div class="tit">今日就诊人数</div>
+                            <div class="boxnav" style="height: 220px ;" id="eight">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map" id="map">
+
+                        <!-- 表示地图部分 -->
+                    </div>
+                </div>
+            </div>
+
+        </li>
+        <li style="width: 22%">
+
+            <div class="box">
+                <div class="tit">今日手术工作量（单位：台）</div>
+                <div class="boxnav" id="one" style="height: 250px;">
+
+                </div>
+            </div>
+            <div class="box" >
+                <div class="tit">今日医院空余床位（百分比）</div>
+                <div class="boxnav"  id="two" style="height: 262px;">
+
+                </div>
+            </div>
+
+        </li>
+    </ul>
+
+    <div class="box" style="padding: 20px 0;" >
+        <ul class="clearfix nav2 ">
+            <li style="width:25%" >
+                <div class="tit01">医院患者年龄分布</div>
+                <div class="ftechart" id="six"></div>
+            </li>
+            <li style="width:25%" >
+                <div class="tit01">各医院门诊住院费用</div>
+                <div class="ftechart" id="five"></div>
+            </li>
+            <li style="width:25%" >
+                <div class="tit01">药占比</div>
+                <div class="boxnav" id="four" style="height: 250px;">
+            </li>
+            <li style="width:25%" >
+                <div class="tit01">医院综合治疗水平雷达图</div>
+                <div class="boxnav" id="three" style="height: 250px;">
+            </li>
+        </ul>
+    </div>
+
+
+</div>
+
 </body>
 <script>
-	var mychart = echarts.init(document.getElementById("one"));
+    //*** 各医院门诊住院费用图 - 5 ***
+    var mychart = echarts.init(document.getElementById("five"));
+    var options = {
+        // 调整图表布局
+        grid: {
+            left: '10%',
+            right: '10%',
+            top: '20%',
+            bottom: '20%',
+            backgroundColor: 'transparent'
+        },
+        // 设置工具箱
+        toolbox: {
+            itemSize: 15,
+            feature: {
+                saveAsImage: {},
+                dataView: {},
+                magicType: {
+                    type: ['line', 'stack']
+                },
+                restore: {}
+            },
 
-	var options = {
-		// 调整图表布局
-		grid: {
-			left: '10%',
-			right: '10%',
-			top: '20%',
-			bottom: '20%',
-			backgroundColor: 'transparent'
-		},
-		// 设置工具箱
-		toolbox: {
-			itemSize: 15,
-			feature: {
-				saveAsImage: {},
-				dataView: {},
-				magicType: {
-					type: ['line', 'stack']
-				},
-				restore: {}
-			},
-			top: 0,
-			right: 20,
-			featureTitle: {
-				color: '#333',
-				fontWeight: 'bold'
-			}
-		},
-		// 设置颜色
-		color: ['#546ef3', '#a6cb09', '#f8bd00'],
-		// 设置提示框
-		tooltip: {
-			trigger: 'axis',
-			axisPointer: {
-				type: 'shadow'
-			},
-			formatter: function(params) {
-				var result = '';
-				for (var i = 0; i < params.length; i++) {
-					result += params[i].seriesName + ': ' + params[i].value + '<br>';
-				}
-				return result;
-			}
-		},
-		// 设置 X 轴
-		xAxis: {
-			type: 'category',
-			data: ['人均费用', '住院人次', '门诊人数'],
-			axisLine: {
-				lineStyle: { color: '#ccc' }
-			},
-			axisTick: {
-				show: false
-			},
-			axisLabel: {
-				color: '#999'
-			}
-		},
-		// 设置 Y 轴
-		yAxis: {
-			type: 'value',
-			axisLine: {
-				lineStyle: { color: '#ccc' }
-			},
-			axisTick: {
-				show: false
-			},
-			axisLabel: {
-				color: '#999'
-			},
-			splitLine: {
-				lineStyle: { color: '#eee' }
-			}
-		},
-		// 设置数据系列
-		series: [
-			{
-				type: 'bar',
-				name: '吉大一院',
-				data: [25, 29, 60],
-				barWidth: 20,
-				itemStyle: {
-					borderRadius:20
-				}
-			},
-			{
-				type: 'bar',
-				name: '吉大二院',
-				data: [10, 45, 50],
-				barWidth: 20,
-				itemStyle: {
-					borderRadius:20
-				}
-			},
-			{
-				type: 'bar',
-				name: '吉大三院',
-				data: [55, 60, 10],
-				barWidth: 20,
-				itemStyle: {
-					borderRadius:20
-				}
-			}
-		],
-		// 设置图例
-		legend: {
-			data: [
-				{
-					name: '吉大一院',
-					icon: 'circle',
-					textStyle: { color: '#333' }
-				},
-				{
-					name: '吉大二院',
-					icon: 'circle',
-					textStyle: { color: '#333' }
-				},
-				{
-					name: '吉大三院',
-					icon: 'circle',
-					textStyle: { color: '#333' }
-				}
-			],
-			top: 'bottom',
-			left: 'center',
-			textStyle: {
-				color: '#999'
-			},
-			itemGap: 15,
-			itemWidth: 10,
-			itemHeight: 10
-		}
-	};
+            //修改工具箱颜色
+            iconStyle: {
+                borderColor: '#fff'
+            },
+            top: 0,
+            right: 20,
+            featureTitle: {
+                color: '#5b81cb',
+                fontWeight: 'bold'
+            }
+        },
+        // 设置颜色
+        color: ['#546ef3', '#a6cb09', '#f8bd00'],
+        // 设置提示框
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            },
+            formatter: function(params) {
+                var result = '';
+                for (var i = 0; i < params.length; i++) {
+                    result += params[i].seriesName + ': ' + params[i].value + '<br>';
+                }
+                return result;
+            }
+        },
+        // 设置 X 轴
+        xAxis: {
+            type: 'category',
+            data: ['人均费用', '住院人次', '门诊人数'],
+            axisLine: {
+                lineStyle: { color: '#ccc' }
+            },
+            axisTick: {
+                show: false
+            },
+            axisLabel: {
+                color: '#fff'
+            }
+        },
+        // 设置 Y 轴
+        yAxis: {
+            type: 'value',
+            axisLine: {
+                lineStyle: { color: '#fff' }
+            },
+            axisTick: {
+                show: false
+            },
+            axisLabel: {
+                color: '#fff'
+            },
+            splitLine: {
+                lineStyle: { color: '#fff' }
+            }
+        },
+        // 设置数据系列
+        series: [
+            {
+                type: 'bar',
+                name: '吉大一院',
+                data: [25, 29, 60],
+                barWidth: 20,
+                itemStyle: {
+                    borderRadius:20
+                }
+            },
+            {
+                type: 'bar',
+                name: '吉大二院',
+                data: [10, 45, 50],
+                barWidth: 20,
+                itemStyle: {
+                    borderRadius:20
+                }
+            },
+            {
+                type: 'bar',
+                name: '吉大三院',
+                data: [55, 60, 10],
+                barWidth: 20,
+                itemStyle: {
+                    borderRadius:20
+                }
+            }
+        ],
+        // 设置图例
+        legend: {
+            data: [
+                {
+                    name: '吉大一院',
+                    icon: 'circle',
+                },
+                {
+                    name: '吉大二院',
+                    icon: 'circle',
+                },
+                {
+                    name: '吉大三院',
+                    icon: 'circle',
+                }
+            ],
+            bottom: 'bottom', // 底部
+            left: 'center',
+            textStyle: {
+                color: '#fff',
+                fontSize: 11
+            },
+            itemGap: 15,
+            itemWidth: 10,
+            itemHeight: 10
+        }
+    };
+    mychart.setOption(options);
 
-	mychart.setOption(options);
+    //*** 医院综合治疗水平雷达图 - 3 ***
+    var mychart = echarts.init(document.getElementById("three"))
+    var options = {
+        color: ['#00c2ff', '#f9cf67', '#e92b77'],
+        legend: {
+            show: true,
+            // icon: 'circle',//图例形状
+            bottom: 0,
+            center: 0,
+            itemWidth: 14, // 图例标记的图形宽度。[ default: 25 ]
+            itemHeight: 14, // 图例标记的图形高度。[ default: 14 ]
+            itemGap: 21, // 图例每项之间的间隔。[ default: 10 ]横向布局时为水平间隔，纵向布局时为纵向间隔。
+            textStyle: {
+                fontSize: 14,
+                color: '#ade3ff'
+            },
+            data: ['一院', '二院', '三院'],
+        },
+        radar: [{
+            indicator: [{
+                text: '医生数量',
+                max: 100
+            },
+                {
+                    text: '床位资源',
+                    max: 100
+                },
+                {
+                    text: '平均治疗费用',
+                    max: 100
+                },
+                {
+                    text: '新型药物研究',
+                    max: 100
+                },
+                {
+                    text: '就诊人数',
+                    max: 100
+                }
+            ],
 
-	var mychart = echarts.init(document.getElementById("four"));
-	var options = {
-		legend: {
-			data: [
-				{
-					name: '中药',
-					// icon: 'circle',
-					// textStyle: { color: 'red' }
-				},
-				{
-					name: '西药',
-					// icon: 'circle',
-					// textStyle: { color: 'red' }
-				},
-			],
-			// 设置 legend 的位置
-			top: 'top',
-			left: 'center'
-		},
-		tooltip: {
-			triggerOn: 'click',
-			trigger: 'axis'
-		},
-		//直角坐标系当中的x轴
-		xAxis: {
-			//类型为种类
-			type: 'category',
-			//类别数据要写到类型为种类的轴中
-			data: ['吉大一院', '吉大二院', '吉大三院'],
-			//去掉轴线和刻度线
-			axisLine: {
-				show: false
-			},
-			axisTick: {
-				show: false
-			},
-			//设置轴线上标签的样式
-			axisLabel: {
-				color: '#333'
-			}
-		},
-		//直角坐标系当中的Y轴
-		yAxis: {
-			//类型为值
-			type: 'value',
-			// 将纵坐标显示为百分制
-			axisLabel: {
-				formatter: '{value}%'
-			},
-			//去掉轴线和刻度线
-			axisLine: {
-				show: false
-			},
-			axisTick: {
-				show: false
-			},
-			//设置轴线上标签的样式
-			axisLabel: {
-				color: '#333'
-			}
-		},
-		//数据通常放在series属性当中
-		series: [
-			{
-				type: 'bar',
-				data: [25, 29, 60],
-				name: '中药',
-				stack: '药品使用',
-				//设置柱状图上的文字样式和位置
-				label: {
-					show: true,
-					position: 'top',
-					color: '#333'
-				},
-				//设置柱状图的样式
-				itemStyle: {
-					color: '#546ef3'
-				}
-			}, {
-				type: 'bar',
-				data: [75, 71, 40],
-				name: '西药',
-				stack: '药品使用',
-				//设置柱状图上的文字样式和位置
-				label: {
-					show: true,
-					position: 'top',
-					color: '#333'
-				},
-				//设置柱状图的样式
-				itemStyle: {
-					color: '#a6cb09'
-				}
-			}
-		],
-	};
+            textStyle: {
+                color: 'red'
+            },
+            center: ['50%', '50%'],
+            radius: 85,
+            startAngle: 90,
+            splitNumber: 3,
+            orient: 'horizontal', // 图例列表的布局朝向,默认'horizontal'为横向,'vertical'为纵向.
+            name: {
+                formatter: '{value}',
+                textStyle: {
+                    fontSize: 12, //外圈标签字体大小
+                    color: '#fff' //外圈标签字体颜色
+                },
+                //让标签和图形在同一起点
+                padding: [0, -10]
+            },
+            splitArea: { // 坐标轴在 grid 区域中的分隔区域，默认不显示。
+                show: true,
+            },
+            axisLine: { //指向外圈文本的分隔线样式
+                lineStyle: {
+                    color: '#153269'
+                }
+            },
+            splitLine: {
+                lineStyle: {
+                    color: '#113865', // 分隔线颜色
+                    width: 1, // 分隔线线宽
+                }
+            }
+        }, ],
+        series: [{
+            name: '雷达图',
+            type: 'radar',
+            itemStyle: {
+                emphasis: {
+                    lineStyle: {
+                        width: 4
+                    }
+                }
+            },
+            data: [{
+                name: '一院',
+                value: [85, 65, 55, 90, 82],
+                areaStyle: {
+                    normal: { // 单项区域填充样式
+                        color: {
+                            type: 'linear',
+                            x: 0, //右
+                            y: 0, //下
+                            x2: 1, //左
+                            y2: 1, //上
+                            colorStops: [{
+                                offset: 0,
+                                color: '#00c2ff'
+                            }, {
+                                offset: 0.5,
+                                color: 'rgba(0,0,0,0)'
+                            }, {
+                                offset: 1,
+                                color: '#00c2ff'
+                            }],
+                            globalCoord: false
+                        },
+                        opacity: 1 // 区域透明度
+                    }
+                },
+                symbolSize: 2.5, // 单个数据标记的大小，可以设置成诸如 10 这样单一的数字，也可以用数组分开表示宽和高，例如 [20, 10] 表示标记宽为20，高为10。
+                label: {                    // 单个拐点文本的样式设置
+                    normal: {
+                        show: true,       // 单个拐点文本的样式设置。[ default: false ]
+                        position: 'top',  // 标签的位置。[ default: top ]
+                        distance: 2,     // 距离图形元素的距离。当 position 为字符描述值（如 'top'、'insideRight'）时候有效。[ default: 5 ]
+                        color: '#fff',   // 文字的颜色。如果设置为 'auto'，则为视觉映射得到的颜色，如系列色。[ default: "#fff" ]
+                        fontSize: 12,           // 文字的字体大小
+                        formatter:function(params) {
+                            return params.value;
+                        }
+                    }
+                },
+                itemStyle: {
+                    normal: { //图形悬浮效果
+                        borderColor: '#00c2ff',
+                        borderWidth: 2.5
+                    }
+                },
+            }, {
+                name: '二院',
+                value: [50, 20, 45, 30, 75],
+                symbolSize: 2.5,
+                itemStyle: {
+                    normal: {
+                        borderColor: '#f9cf67',
+                        borderWidth: 2.5,
+                    }
+                },
+                areaStyle: {
+                    normal: { // 单项区域填充样式
+                        color: {
+                            type: 'linear',
+                            x: 0, //右
+                            y: 0, //下
+                            x2: 1, //左
+                            y2: 1, //上
+                            colorStops: [{
+                                offset: 0,
+                                color: '#f9cf67'
+                            }, {
+                                offset: 0.5,
+                                color: 'rgba(0,0,0,0)'
+                            }, {
+                                offset: 1,
+                                color: '#f9cf67'
+                            }],
+                            globalCoord: false
+                        },
+                        opacity: 1 // 区域透明度
+                    }
+                },
+            }, {
+                name: '三院',
+                value: [37, 80, 12, 50, 25],
+                symbolSize: 2.5,
+                itemStyle: {
+                    normal: {
+                        borderColor: '#e92b77',
+                        borderWidth: 2.5,
+                    }
+                },
+                areaStyle: {
+                    normal: { // 单项区域填充样式
+                        color: {
+                            type: 'linear',
+                            x: 0, //右
+                            y: 0, //下
+                            x2: 1, //左
+                            y2: 1, //上
+                            colorStops: [{
+                                offset: 0,
+                                color: '#e92b77'
+                            }, {
+                                offset: 0.5,
+                                color: 'rgba(0,0,0,0)'
+                            }, {
+                                offset: 1,
+                                color: '#e92b77'
+                            }],
+                            globalCoord: false
+                        },
+                        opacity: 1 // 区域透明度
+                    }
+                }
+            }]
+        }, ]
+    }
+    mychart.setOption(options)
 
-	mychart.setOption(options);
+    //*** 医院药储量极坐标图 - 2 ***
+    var mychart = echarts.init(document.getElementById("two"))
+    var options = {
+        color: ['#546ef3', '#a6cb09', '#f8bd00', '#ff6c00'],
+        legend: {
+            orient: 'vertical',
+            //设置颜色
+            right:0,
+            bottom:0,
+            textStyle: {
+                color: '#fff',
+                fontSize: 10
+            },
 
-	var mychart = echarts.init(document.getElementById("five"));
-	var options = {
-		// 调整图表布局
-		grid: {
-			left: '10%',
-			right: '10%',
-			bottom: '10%',
-			containLabel: true
-		},
-		legend: {
-			// 调整图例样式和位置
-			top: '5%',
-			left: 'center',
-			itemWidth: 10,
-			itemHeight: 10,
-			textStyle: {
-				fontSize: 12
-			},
-			orient: 'horizontal',
-			data: ['吉大一院', '吉大二院', '吉大三院']
-		},
-		series: {
-			type: 'pie',
-			// 美化扇区样式
-			itemStyle: {
-				borderRadius: 4,
-				borderColor: '#fff',
-				borderWidth: 2
-			},
-			// 美化标签样式
-			label: {
-				show: true,
-				formatter: '{b}: {c} ({d}%)',
-				fontSize: 12
-			},
-			// 美化标签线样式
-			labelLine: {
-				show: true,
-				length: 10,
-				length2: 10,
-				smooth: true
-			},
-			// 设置成饼图
-			roseType: 'area',
-			data: [
-				{ value: 20, name: '吉大一院', itemStyle: { color: '#5470c6' } },
-				{ value: 40, name: '吉大二院', itemStyle: { color: '#91cc75' } },
-				{ value: 30, name: '吉大三院', itemStyle: { color: '#fac858' } }
-			]
-		}
-	};
-	mychart.setOption(options);
+        },
+        //在极坐标系的柱子上添加数字
 
-	var mychart = echarts.init(document.getElementById("eight"));
-	var options = {
-		// 调整图表布局
-		grid: {
-			left: '10%',
-			right: '10%',
-			top: '20%',
-			bottom: '20%',
-			backgroundColor: 'transparent'
-		},
-		// 调整图例样式和位置
-		legend: {
-			top: 'bottom',
-			left: 'center',
-			textStyle: {
-				color: '#999'
-			},
-			itemGap: 15,
-			itemWidth: 10,
-			itemHeight: 10,
-			data: [
-				{
-					name: '吉大一院',
-					icon: 'circle',
-					textStyle: { color: '#333' }
-				},
-				{
-					name: '吉大二院',
-					icon: 'circle',
-					textStyle: { color: '#333' }
-				},
-				{
-					name: '吉大三院',
-					icon: 'circle',
-					textStyle: { color: '#333' }
-				}
-			]
-		},
-		// 设置工具箱
-		toolbox: {
-			itemSize: 15,
-			feature: {
-				saveAsImage: {},
-				dataView: {},
-				magicType: {
-					type: ['bar', 'stack']
-				},
-				restore: {}
-			},
-			top: 0,
-			right: 20,
-			featureTitle: {
-				color: '#333',
-				fontWeight: 'bold'
-			}
-		},
-		// 设置提示框
-		tooltip: {
-			trigger: 'axis',
-			axisPointer: {
-				type: 'line'
-			}
-		},
-		// 设置 X 轴
-		xAxis: {
-			type: 'category',
-			data: ['8:00', '12:00', '16:00', '20:00'],
-			axisLine: {
-				lineStyle: { color: '#ccc' }
-			},
-			axisTick: {
-				show: false
-			},
-			axisLabel: {
-				color: '#999'
-			}
-		},
-		// 设置 Y 轴
-		yAxis: {
-			type: 'value',
-			axisLine: {
-				lineStyle: { color: '#ccc' }
-			},
-			axisTick: {
-				show: false
-			},
-			axisLabel: {
-				color: '#999'
-			},
-			splitLine: {
-				lineStyle: { color: '#eee' }
-			}
-		},
-		// 设置数据系列
-		series: [
-			{
-				type: 'line',
-				name: '吉大一院',
-				data: [10, 50, 50, 10],
-				smooth: true,
-				itemStyle: {
-					borderColor: '#ff6666',
-					borderWidth: 2
-				},
-
-			},
-			{
-				type: 'line',
-				name: '吉大二院',
-				data: [20, 70, 79, 60],
-				smooth: true,
-				itemStyle: {
-					borderColor: '#00cc99',
-					borderWidth: 2
-				},
-
-			},
-			{
-				type: 'line',
-				name: '吉大三院',
-				data: [30, 40, 90, 60],
-				smooth: true,
-				itemStyle: {
-					borderColor: '#ffcc00',
-					borderWidth: 2
-				},
-			}
-		],
-		// 设置颜色
-		color: ['#546ef3', '#a6cb09', '#f8bd00']
-	};
-	mychart.setOption(options);
+        tooltip: {
+            show: true,
+            trigger: 'item',
+            formatter: "{a} : <br />{c}%",
+        },
+        polar: {
+            center: ['35%', '49%'],
+            radius: '250%' //图形大小
+        },
+        //内嵌标签，将数字显示在柱子中
 
 
+        angleAxis: {
+            show: false,
+            startAngle: 90,
+            min: 0,
+            max: 100
+        },
+        radiusAxis: {
+            type: 'category',
+            show: false,
+            data: ["吉林大学第一医院", "吉林大学第二医院", "吉林大学第三医院"]
+        },
+        series: [
+            //设置字体颜色
 
-	//第三步：初始化echarts实例对象
-	var mychart=echarts.init(document.getElementById("map"))
-		$.getJSON("https://geo.datav.aliyun.com/areas_v3/bound/220100_full.json",function(r){
-			//注册地图组件
-			echarts.registerMap("长春市",r)
-			//第四步：指定配置项和数据
-			var options={
-				geo:{
-					//名称一定要和上面registerMap注册的名称一致
-					map:"长春市",
-					itemStyle:{
-						areaColor:'white'
-					},
-					label:{
-						show:true
-					},
-					regions: [{
-					    name: '朝阳区',
-					    itemStyle: {
-					        areaColor: 'red',
-					        color: 'red'
-					    }
-					}]
-				},
+            {
+                type: "bar",
+                name: "吉林大学第一医院",
+                coordinateSystem: "polar",
+                barWidth: 20, //宽度
+                barCategoryGap: "40%",
+                // data: ["76.25","47.09","22.09"],
+                data: ["76.25"],
+                label:{
+                    show:true,
+                    position: 'middle', // 标签位置
+                }
+            },
+            {
+                type: "bar",
+                name: "吉林大学第二医院",
+                coordinateSystem: "polar",
+                barWidth: 20,
+                barCategoryGap: "40%",
+                // data: ["14.09","55.09","27.09"]
+                data: ["34.09"],
+                label:{
+                    show:true,
+                    color:'#fff',
+                    position: 'middle', // 标签位置
+                }
+            },
+            {
+                type: "bar",
+                name: "吉林大学第三医院",
+                coordinateSystem: "polar",
+                barWidth: 20,
+                barCategoryGap: "40%",
+                // data: ["9.66","23.09","53.09"]
+                data: ["79.66"],
+                label:{
+                    show:true,
+                    color:'#fff',
+                    position: 'middle', // 标签位置
+                }
+            },
+        ]
 
-		}
+    }
+    mychart.setOption(options)
 
-		//第五步：将配置项设置给echarts实例对象
-		mychart.setOption(options)
-		}
-		)
+    //*** 药占比图 - 4 ***
+    var mychart = echarts.init(document.getElementById("four"));
+    var options = {
+        legend: {
+            data: [
+                {
+                    name: '中药',
+                },
+                {
+                    name: '西药',
+                },
+            ],
+            // 设置 legend 的位置
+            top: 'top',
+            left: 'center',
+            //设置legend 文本颜色
+            textStyle: {
+                color: '#fff',
+                fontSize: 10
+            },
+        },
+        tooltip: {
+            triggerOn: 'click',
+            trigger: 'axis'
+        },
+        //直角坐标系当中的x轴
+        xAxis: {
+            //类型为种类
+            type: 'category',
+            //类别数据要写到类型为种类的轴中
+            data: ['吉大一院', '吉大二院', '吉大三院'],
+            //去掉轴线和刻度线
+            axisLine: {
+                show: false
+            },
+            axisTick: {
+                show: false
+            },
+            //设置轴线上标签的样式
+            axisLabel: {
+                color: '#333'
+            },
+            //设置颜色
+            axisLine: {
+                lineStyle: {
+                    color: '#fff'
+                }
+            },
+            //设置网格样式
+            splitLine: {
+                show: true,
+                lineStyle: {
+                    color: '#fff',
+                    type: 'dashed'
+                }
+            },
+            //设置label颜色
+            axisLabel: {
+                color: '#fff'
+            }
+        },
+        //直角坐标系当中的Y轴
+        yAxis: {
+            //类型为值
+            type: 'value',
+            // 将纵坐标显示为百分制
+            axisLabel: {
+                formatter: '{value}%'
+            },
+            //去掉轴线和刻度线
+            axisLine: {
+                show: false
+            },
+            axisTick: {
+                show: false
+            },
+            //设置轴线上标签的样式
+            axisLabel: {
+                color: '#333'
+            },
+            //设置颜色
+            axisLine: {
+                lineStyle: {
+                    color: '#fff'
+                }
+            },
+            //设置label颜色
+            axisLabel: {
+                color: '#fff'
+            }
+        },
+        //数据通常放在series属性当中
+        series: [
+            {
+                type: 'bar',
+                data: [25, 29, 60],
+                name: '中药',
+                stack: '药品使用',
+                //设置柱状图上的文字样式和位置
+                label: {
+                    show: true,
+                    position: 'top',
+                    color: '#fff'
+                },
+                //设置柱状图的样式
+                itemStyle: {
+                    color: '#546ef3'
+                }
+            }, {
+                type: 'bar',
+                data: [75, 71, 40],
+                name: '西药',
+                stack: '药品使用',
+                //设置柱状图上的文字样式和位置
+                label: {
+                    show: true,
+                    position: 'top',
+                    color: '#fff'
+                },
+                //设置柱状图的样式
+                itemStyle: {
+                    color: '#a6cb09'
+                }
+            }
+        ],
+    };
+    mychart.setOption(options);
 
+    //*** 手术工作量图 - 1 ***
+    var mychart = echarts.init(document.getElementById("one"));
+    var options = {
+        // 调整图表布局
+        grid: {
+            left: '10%',
+            right: '10%',
+            bottom: '10%',
+            containLabel: true
+        },
+        legend: {
+            // 调整图例样式和位置
+            top: '5%',
+            left: 'center',
+            itemWidth: 10,
+            itemHeight: 10,
+            textStyle: {
+                fontSize: 12,
+                color:'#fff'
+            },
+            orient: 'horizontal',
+            data: ['吉大一院', '吉大二院', '吉大三院']
+        },
+        //加入tooltip
+        tooltip: {
+            show: true,
+            trigger: 'item',
+            formatter: '{b}:<br> {c} ({d}%)',
+        },
+        series: {
+            type: 'pie',
+            // 美化扇区样式
+            itemStyle: {
+                borderRadius: 4,
+                borderColor: '#fff',
+                borderWidth: 2
+            },
+            // 美化标签样式
+            label: {
+                show: true,
+                formatter: '{b}: {c}',
+                fontSize: 12
+            },
+            // 美化标签线样式
+            labelLine: {
+                show: true,
+                length: 10,
+                length2: 10,
+                smooth: true
+            },
+            // 设置成饼图
+            roseType: 'area',
+            data: [
+                { value: 20, name: '吉大一院', itemStyle: { color: '#5470c6' } },
+                { value: 40, name: '吉大二院', itemStyle: { color: '#91cc75' } },
+                { value: 30, name: '吉大三院', itemStyle: { color: '#fac858' } }
+            ]
+        }
+    };
+    mychart.setOption(options);
+
+    //*** 医院就诊患者年龄分布图 - 6 ***
+    var mychart = echarts.init(document.getElementById("six"))
+    var options = {
+        // //设置标题
+        // title: {
+        // 	text: '医院就诊患者年龄分布',
+        // 	textStyle: {
+        // 		color: '#fff',
+        // 		fontSize: 14
+        // 	},
+        // 	left: 'center',
+        // },
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c}%"
+        },
+
+        //设置颜色
+        color: ['#546ef3', '#a6cb09', '#f8bd00', '#ff6c00'],
+
+        //调整漏斗图高度
+
+        series: [
+            {
+                name: '长春市',
+                type: 'funnel',
+                left: 'center',
+                width: '90%',
+                height:'70%',
+                // sort: 'ascending',
+                labelLine: {
+                    normal: {
+                        show: true,
+                        length: 30,
+                        lineStyle: {
+                            type: 'solid',
+                            color: "#6D480E"
+                        },
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        opacity: 0.5,
+                        borderColor: '#000',
+                        borderWidth: 2,
+                        shadowBlur: 0,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 10,
+                        shadowColor: 'rgba(0, 0, 0, .6)'
+                    }
+                },
+                tooltip: {
+                    show: false
+                },
+
+                data: [{
+                    value: 190,
+                }, {
+                    value: 130,
+                },
+                    {
+                        value: 180,
+                    },
+                    {
+                        value: 200,
+                    },
+                ]
+            },
+
+            {
+                name: '长春市',
+                type: 'funnel',
+                left: 'center',
+                width: '80%',
+                height:'70%',
+                maxSize: '80%',
+                label: {
+                    normal: {
+                        position: 'inside',
+                        formatter: '{c}%',
+                        textStyle: {
+                            color: '#fff',
+                            fontSize:14,
+                        },
+                    },
+                    emphasis: {
+                        position: 'inside',
+                        formatter: '{b}: {c}%'
+                    }
+                },
+
+                itemStyle: {
+                    normal: {
+                        opacity: .9,
+                        borderColor: '#B6883F',
+                        borderWidth: 2,
+                        shadowBlur: 0,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 10,
+                        shadowColor: 'rgba(0, 0, 0, .6)'
+                    }
+                },
+
+                data: [{
+                    value: 24,
+                    name: '12及以下儿童'
+                }, {
+                    value: 15,
+                    name: '12~25青少年'
+                },
+                    {
+                        value: 22,
+                        name: '25~60中壮年'
+                    },
+                    {
+                        value: 39,
+                        name: '60岁以上中老年人'
+                    },
+                ]
+            }
+        ]
+    }
+    mychart.setOption(options)
+
+    //*** 医院民意调查平行图 - 7 ***
+    var mychart = echarts.init(document.getElementById("seven"))
+    var options = {
+        //设置平行坐标系大小
+
+        parallelAxis: [{
+            dim: 0,
+            name: '效果',
+            type: 'category',
+            data: ['无效', '中等', '有效']
+
+        },
+            {
+                dim: 1,
+                name: '医生水平',
+                type: 'category',
+                data: ['差', '中', '好']
+            },
+            {
+                dim: 2,
+                name: '治疗费用',
+                interval:2000,
+
+            },
+            {
+                dim: 3,
+                name: '服务态度',
+                type: 'category',
+                data: ['差', '中', '好']
+
+            },
+            {
+                dim: 4,
+                name: '得分',
+                type: 'category',
+                data: ['中', '良', '优']
+            }
+        ],
+        //设置坐标轴颜色
+        parallel: {
+            left: '5%',
+            right: '10%',
+            bottom: '10%',
+            top: '30%',
+            parallelAxisDefault: {
+                nameGap: 20,
+                nameTextStyle: {
+                    color: '#fff',
+                    fontSize: 12
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#aaa',
+                        width: 2
+                    }
+                },
+                splitLine: {
+                    show: false
+                },
+                //取消刻度
+                axisTick: {
+                    show: false
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: '#fff'
+                    }
+                },
+
+            }
+        },
+        legend:{
+            textStyle:{
+                color:'#fff'
+            },
+            right:0,
+            top:0,
+            data:['一院','二院','三院']
+        },
+        series: [{
+            type: 'parallel',
+            name:'一院',
+            lineStyle: {
+                width: 4
+            },
+            data:
+                [['有效', '好', 7956, '好', '优']],
+        },{
+            type: 'parallel',
+            name:'二院',
+            lineStyle: {
+                width: 4
+            },
+            data:
+                [['中等', '中', 2857, '好', '优']],
+        },{
+            type: 'parallel',
+            name:'三院',
+            lineStyle: {
+                width: 4
+            },
+            data:
+                [['有效', '中', 4535, '中', '良']],
+        }
+        ],
+    };
+    mychart.setOption(options)
+
+    //*** 医院就诊人数 - 8 ***
+    var mychart = echarts.init(document.getElementById("eight"));
+    var options = {
+        // 调整图表布局
+        grid: {
+            left: '10%',
+            right: '10%',
+            top: '20%',
+            bottom: '20%',
+            backgroundColor: 'transparent'
+        },
+        // 调整图例样式和位置
+        legend: {
+            top: 'bottom',
+            left: 'center',
+            textStyle: {
+                color: '#fff'
+            },
+            itemGap: 15,
+            itemWidth: 10,
+            itemHeight: 10,
+            data: [
+                {
+                    name: '吉大一院',
+                    icon: 'circle',
+                },
+                {
+                    name: '吉大二院',
+                    icon: 'circle',
+                },
+                {
+                    name: '吉大三院',
+                    icon: 'circle',
+                }
+            ]
+        },
+        // 设置工具箱
+        toolbox: {
+            itemSize: 15,
+            feature: {
+                saveAsImage: {},
+                dataView: {},
+                magicType: {
+                    type: ['bar', 'stack']
+                },
+                restore: {}
+            },
+            //修改工具箱颜色
+            iconStyle: {
+                borderColor: '#fff'
+            },
+            top: 0,
+            right: 20,
+            featureTitle: {
+                color: '#fff',
+                fontWeight: 'bold'
+            }
+        },
+        // 设置提示框
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'line'
+            }
+        },
+        // 设置 X 轴
+        xAxis: {
+            type: 'category',
+            data: ['8:00', '12:00', '16:00', '20:00'],
+            axisLine: {
+                lineStyle: { color: '#fff' }
+            },
+            axisTick: {
+                show: false
+            },
+            axisLabel: {
+                color: '#fff'
+            }
+        },
+        // 设置 Y 轴
+        yAxis: {
+            type: 'value',
+            axisLine: {
+                lineStyle: { color: '#fff' }
+            },
+            axisTick: {
+                show: false
+            },
+            axisLabel: {
+                color: '#fff'
+            },
+            splitLine: {
+                lineStyle: { color: '#fff' }
+            }
+        },
+        // 设置数据系列
+        series: [
+            {
+                type: 'line',
+                name: '吉大一院',
+                data: [10, 50, 50, 10],
+                smooth: true,
+                itemStyle: {
+                    borderColor: '#ff6666',
+                    borderWidth: 2
+                },
+
+            },
+            {
+                type: 'line',
+                name: '吉大二院',
+                data: [20, 70, 79, 60],
+                smooth: true,
+                itemStyle: {
+                    borderColor: '#00cc99',
+                    borderWidth: 2
+                },
+
+            },
+            {
+                type: 'line',
+                name: '吉大三院',
+                data: [30, 40, 90, 60],
+                smooth: true,
+                itemStyle: {
+                    borderColor: '#ffcc00',
+                    borderWidth: 2
+                },
+            }
+        ],
+        // 设置颜色
+        color: ['#546ef3', '#a6cb09', '#f8bd00']
+    };
+    mychart.setOption(options);
+
+    //*** 地图部分 - 9 ***
+    $.getJSON("https://geo.datav.aliyun.com/areas_v3/bound/220100_full.json", function (r) {
+            //注册地图组件
+            echarts.registerMap("长春市", r)
+            var sixth = document.getElementById("map")
+            var mychart = echarts.init(sixth)
+            var options = {
+                visualMap: {
+                    //分段型视觉映射组件
+                    type: 'piecewise',
+                    max: 1000,
+                    min: 0,
+                    //是否显示拖拽用的手柄（手柄能拖拽调整选中范围）
+                    calculable: true,
+                    //定义图例的范围
+                    text: ['高', '低'],
+                    //位置设置在盒子的右侧
+                    orient: 'vertical',
+                    right: 0,
+                    top: 'bottom',
+                    //设置标签颜色
+                    textStyle: {
+                        color: '#fff'
+                    },
+                    showLabel: true,
+                    pieces: [{
+                        gt: 100,
+                        label: '>100人',
+                        color: '#ff0000'
+                    }, {
+                        gte: 10,
+                        lte: 100,
+                        label: '10-100人',
+                        color: '#ff5428'
+                    }, {
+                        gt: 1,
+                        lte: 9,
+                        label: '1-9人',
+                        color: '#ff8c71'
+                    }, {
+                        lte: 0,
+                        label: '=0人',
+                        color: '#fff'
+                    }
+                    ]
+                },
+                series: {
+                    type: 'map',
+                    map: "长春市",
+                    label: {
+                        show: true,
+                        formatter: function (r) {
+                            if (r.name == '公主岭市') {
+                                return r.name.substr(0, 3)
+                            } else {
+                                return r.name.substr(0, 2)
+                            }
+                        }
+                    },
+                    data: [
+                        {
+                            name: '南关区',
+                            value: 45
+                        },
+                        {
+                            name: '朝阳区',
+                            value: 321
+                        },
+                        {
+                            name: '绿园区',
+                            value: 96
+                        },
+                        {
+                            name: '二道区',
+                            value: 111
+                        },
+                        {
+                            name: '双阳区',
+                            value: 4
+                        },
+                        {
+                            name: '九台区',
+                            value: 186
+                        },
+                        {
+                            name: '农安县',
+                            value: 143
+                        },
+                        {
+                            name: '榆树市',
+                            value: 0
+                        },
+                        {
+                            name: '德惠市',
+                            value: 34
+                        },
+                        {
+                            name: '公主岭市',
+                            value: 25
+                        },
+                        {
+                            name: '宽城区',
+                            value: 7
+                        },
+                    ],
+                },
+
+                //鼠标移动到地区的时候，显示详细内容
+                tooltip: {
+                    trigger: 'item',
+                    formatter: function (r) {
+                        return r.name + "<br/>" + "人数：" + r.value
+                    }
+                },
+
+            }
+            mychart.setOption(options)
+        }
+    )
 
 
 </script>
