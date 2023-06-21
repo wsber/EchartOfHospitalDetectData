@@ -265,6 +265,195 @@
 </div>
 </body>
 <script>
+	var mychart = echarts.init(document.getElementById("one"))
+	var options={
+		toolbox:{
+			itemSize:15,
+			feature:{
+				saveAsImage:{},
+				dataView:{},
+				magicType: {
+					type: ['line', 'bar', 'stack']
+				},
+				restore:{}
+			},
+			top: 0,
+			right: 20,
+			featureTitle: {
+				// 设置 toolbox 标题样式
+				color: '#333',
+				fontWeight: 'bold'
+			}
+		},
+		tooltip:{
+			triggerOn:'click',
+			trigger:'axis'
+		},
+		grid:{
+			left:'10%',
+			right:'10%',
+			top: '20%', // 将此值从 50 改为 20%
+			bottom: '20%', // 添加底部留白
+			backgroundColor : 'transparent'
+		},
+		legend:{
+			data:[
+				{
+					name:'吉大一院',
+					icon:'circle',
+					textStyle:{color:'red'}
+				},
+				{
+					name:'吉大二院',
+					icon:'circle',
+					textStyle:{color:'red'}
+				},
+				{
+					name:'吉大三院',
+					icon:'circle',
+					textStyle:{color:'red'}
+				}
+			],
+			// 设置 legend 的位置
+			top: 'bottom',
+			left: 'center'
+		},
+		xAxis:{
+			type:'category',
+			data:['人均费用','住院人次','门诊人数'],
+		},
+		yAxis:{
+			type:'value',
+		},
+		//数据通常放在series属性当中
+		series:[{
+			type:'bar',
+			data:[10,29,50],
+			name:'吉大一院'
+		},{
+			type:'bar',
+			data:[10,29,50],
+			name:'吉大二院'
+		},{
+			type:'bar',
+			data:[10,29,50],
+			name:'吉大三院'
+		}]
+	}
+	<!--5.将配置项设置给echarts实例对象-->
+	mychart.setOption(options)
+
+
+	var mychart = echarts.init(document.getElementById("eight"))
+	var options={
+		toolbox:{
+			itemSize:15,
+			feature:{
+				saveAsImage:{},
+				dataView:{},
+				magicType: {
+					type: ['line', 'bar', 'stack']
+				},
+				restore:{}
+			},
+			top: 0,
+			right: 20,
+			featureTitle: {
+				// 设置 toolbox 标题样式
+				color: '#333',
+				fontWeight: 'bold'
+			}
+		},
+		tooltip:{
+			triggerOn:'click',
+			trigger:'axis'
+		},
+		grid:{
+			left:'10%',
+			right:'10%',
+			top: '20%', // 将此值从 50 改为 20%
+			bottom: '20%', // 添加底部留白
+			backgroundColor : 'transparent'
+		},
+		legend:{
+			data:[
+				{
+					name:'吉大一院',
+					icon:'circle',
+					textStyle:{color:'red'}
+				},
+				{
+					name:'吉大二院',
+					icon:'circle',
+					textStyle:{color:'red'}
+				},
+				{
+					name:'吉大三院',
+					icon:'circle',
+					textStyle:{color:'red'}
+				}
+			],
+			// 设置 legend 的位置
+			top: 'bottom',
+			left: 'center'
+		},
+		xAxis:{
+			type:'category',
+			data:['人均费用','住院人次','门诊人数'],
+		},
+		yAxis:{
+			type:'value',
+		},
+		//数据通常放在series属性当中
+		series:[{
+			type:'bar',
+			data:[10,29,50],
+			name:'吉大一院'
+		},{
+			type:'bar',
+			data:[10,29,50],
+			name:'吉大二院'
+		},{
+			type:'bar',
+			data:[10,29,50],
+			name:'吉大三院'
+		}]
+	}
+	<!--5.将配置项设置给echarts实例对象-->
+	mychart.setOption(options)
+
+	//第三步：初始化echarts实例对象
+	var mychart=echarts.init(document.getElementById("map"))
+		$.getJSON("https://geo.datav.aliyun.com/areas_v3/bound/220100_full.json",function(r){
+			//注册地图组件
+			echarts.registerMap("长春市",r)
+			//第四步：指定配置项和数据
+			var options={
+				geo:{
+					//名称一定要和上面registerMap注册的名称一致
+					map:"长春市",
+					itemStyle:{
+						areaColor:'white'
+					},
+					label:{
+						show:true
+					},
+					regions: [{
+					    name: '朝阳区',
+					    itemStyle: {
+					        areaColor: 'red',
+					        color: 'red'
+					    }
+					}]
+				},
+				
+		}
+		
+		//第五步：将配置项设置给echarts实例对象
+		mychart.setOption(options)
+		}
+		)
+
 
     //*** 医院药储量 - 3 ***
     var mychart = echarts.init(document.getElementById("three"))
