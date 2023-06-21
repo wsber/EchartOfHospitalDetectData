@@ -242,6 +242,7 @@
 
 
 	</div>
+
 </body>
 <script>
 	var mychart = echarts.init(document.getElementById("one"));
@@ -700,6 +701,217 @@
 		}
 		)
 
+
+    //*** 医院药储量 - 3 ***
+    var mychart = echarts.init(document.getElementById("three"))
+    var options = {
+
+        //设置标题
+        title: {
+            text: '医院药储量',
+            textStyle: {
+                color: '#fff',
+                fontSize: 14
+            },
+            left: 'center',
+        },
+        color: ['#546ef3', '#a6cb09', '#f8bd00', '#ff6c00'],
+        legend: {
+            orient: 'vertical',
+            //设置颜色
+            right:0,
+            bottom:0,
+            textStyle: {
+                color: '#fff',
+                fontSize: 10
+            },
+
+        },
+        tooltip: {
+            show: true,
+            trigger: 'item',
+            formatter: "{a} : <br />{c}%",
+        },
+        polar: {
+            center: ['30%', '60%'],
+            radius: '300%' //图形大小
+        },
+        angleAxis: {
+            show: false,
+            startAngle: 90,
+            min: 0,
+            max: 100
+        },
+        radiusAxis: {
+            type: 'category',
+            show: false,
+            data: ["吉林大学第一医院", "吉林大学第二医院", "吉林大学中日联谊医院","吉林省人民医院"]
+        },
+        series: [
+            //设置字体颜色
+
+            {
+                type: "bar",
+                name: "吉林大学第一医院",
+                coordinateSystem: "polar",
+                barWidth: 20, //宽度
+                barCategoryGap: "40%",
+                // data: ["76.25","47.09","22.09"],
+                data: ["76.25"],
+            },
+            {
+                type: "bar",
+                name: "吉林大学第二医院",
+                coordinateSystem: "polar",
+                barWidth: 20,
+                barCategoryGap: "40%",
+                // data: ["14.09","55.09","27.09"]
+                data: ["84.09"]
+            },
+            {
+                type: "bar",
+                name: "吉林大学中日联谊医院",
+                coordinateSystem: "polar",
+                barWidth: 20,
+                barCategoryGap: "40%",
+                // data: ["9.66","23.09","53.09"]
+                data: ["79.66"]
+            },
+            {
+                type: "bar",
+                name: "吉林省人民医院",
+                coordinateSystem: "polar",
+                barWidth: 20,
+                barCategoryGap: "40%",
+                // data: ["9.66","23.09","53.09"]
+                data: ["89.66"]
+            }
+        ]
+
+    }
+    //第五步：将配置项设置给echarts实例对象
+    mychart.setOption(options)
+
+
+    //*** 地图部分 - 9 ***
+    $.getJSON("https://geo.datav.aliyun.com/areas_v3/bound/220100_full.json", function (r) {
+            //注册地图组件
+            echarts.registerMap("长春市", r)
+            var sixth = document.getElementById("map")
+            var mychart = echarts.init(sixth)
+            var options = {
+                visualMap: {
+                    //分段型视觉映射组件
+                    type: 'piecewise',
+                    max: 1000,
+                    min: 0,
+                    //是否显示拖拽用的手柄（手柄能拖拽调整选中范围）
+                    calculable: true,
+                    //定义图例的范围
+                    text: ['高', '低'],
+                    //位置设置在盒子的右侧
+                    orient: 'vertical',
+                    right: 0,
+                    top: 'bottom',
+                    //设置标签颜色
+                    textStyle: {
+                        color: '#fff'
+                    },
+                    showLabel: true,
+                    pieces: [{
+                        gt: 100,
+                        label: '>100人',
+                        color: '#ff0000'
+                    }, {
+                        gte: 10,
+                        lte: 100,
+                        label: '10-100人',
+                        color: '#ff5428'
+                    }, {
+                        gt: 1,
+                        lte: 9,
+                        label: '1-9人',
+                        color: '#ff8c71'
+                    }, {
+                        lte: 0,
+                        label: '=0人',
+                        color: '#fff'
+                    }
+                    ]
+                },
+                series: {
+                    type: 'map',
+                    map: "长春市",
+                    label: {
+                        show: true,
+                        formatter: function (r) {
+                            if (r.name == '公主岭市') {
+                                return r.name.substr(0, 3)
+                            } else {
+                                return r.name.substr(0, 2)
+                            }
+                        }
+                    },
+                    data: [
+                        {
+                            name: '南关区',
+                            value: 45
+                        },
+                        {
+                            name: '朝阳区',
+                            value: 321
+                        },
+                        {
+                            name: '绿园区',
+                            value: 96
+                        },
+                        {
+                            name: '二道区',
+                            value: 111
+                        },
+                        {
+                            name: '双阳区',
+                            value: 4
+                        },
+                        {
+                            name: '九台区',
+                            value: 186
+                        },
+                        {
+                            name: '农安县',
+                            value: 143
+                        },
+                        {
+                            name: '榆树市',
+                            value: 0
+                        },
+                        {
+                            name: '德惠市',
+                            value: 34
+                        },
+                        {
+                            name: '公主岭市',
+                            value: 25
+                        },
+                        {
+                            name: '宽城区',
+                            value: 7
+                        },
+                    ],
+                },
+
+                //鼠标移动到地区的时候，显示详细内容
+                tooltip: {
+                    trigger: 'item',
+                    formatter: function (r) {
+                        return r.name + "<br/>" + "人数：" + r.value
+                    }
+                },
+
+            }
+            mychart.setOption(options)
+        }
+    )
 
 
 </script>
