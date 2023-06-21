@@ -244,142 +244,241 @@
 	</div>
 </body>
 <script>
-	var mychart = echarts.init(document.getElementById("one"))
-	var options={
-		toolbox:{
-			itemSize:15,
-			feature:{
-				saveAsImage:{},
-				dataView:{},
+	var mychart = echarts.init(document.getElementById("one"));
+
+	var options = {
+		// 调整图表布局
+		grid: {
+			left: '10%',
+			right: '10%',
+			top: '20%',
+			bottom: '20%',
+			backgroundColor: 'transparent'
+		},
+		// 设置工具箱
+		toolbox: {
+			itemSize: 15,
+			feature: {
+				saveAsImage: {},
+				dataView: {},
 				magicType: {
 					type: ['line', 'stack']
 				},
-				restore:{}
+				restore: {}
 			},
 			top: 0,
 			right: 20,
 			featureTitle: {
-				// 设置 toolbox 标题样式
 				color: '#333',
 				fontWeight: 'bold'
 			}
 		},
-		color: ['#546ef3', '#a6cb09', '#f8bd00', '#ff6c00'],
-		tooltip:{
-			triggerOn:'click',
-			trigger:'axis'
+		// 设置颜色
+		color: ['#546ef3', '#a6cb09', '#f8bd00'],
+		// 设置提示框
+		tooltip: {
+			trigger: 'axis',
+			axisPointer: {
+				type: 'shadow'
+			},
+			formatter: function(params) {
+				var result = '';
+				for (var i = 0; i < params.length; i++) {
+					result += params[i].seriesName + ': ' + params[i].value + '<br>';
+				}
+				return result;
+			}
 		},
-		grid:{
-			left:'10%',
-			right:'10%',
-			top: '20%', // 将此值从 50 改为 20%
-			bottom: '20%', // 添加底部留白
-			backgroundColor : 'transparent'
+		// 设置 X 轴
+		xAxis: {
+			type: 'category',
+			data: ['人均费用', '住院人次', '门诊人数'],
+			axisLine: {
+				lineStyle: { color: '#ccc' }
+			},
+			axisTick: {
+				show: false
+			},
+			axisLabel: {
+				color: '#999'
+			}
 		},
-		legend:{
-			data:[
+		// 设置 Y 轴
+		yAxis: {
+			type: 'value',
+			axisLine: {
+				lineStyle: { color: '#ccc' }
+			},
+			axisTick: {
+				show: false
+			},
+			axisLabel: {
+				color: '#999'
+			},
+			splitLine: {
+				lineStyle: { color: '#eee' }
+			}
+		},
+		// 设置数据系列
+		series: [
+			{
+				type: 'bar',
+				name: '吉大一院',
+				data: [25, 29, 60],
+				barWidth: 20,
+				itemStyle: {
+					borderRadius:20
+				}
+			},
+			{
+				type: 'bar',
+				name: '吉大二院',
+				data: [10, 45, 50],
+				barWidth: 20,
+				itemStyle: {
+					borderRadius:20
+				}
+			},
+			{
+				type: 'bar',
+				name: '吉大三院',
+				data: [55, 60, 10],
+				barWidth: 20,
+				itemStyle: {
+					borderRadius:20
+				}
+			}
+		],
+		// 设置图例
+		legend: {
+			data: [
 				{
-					name:'吉大一院',
-					icon:'circle',
-					textStyle:{color:'red'}
+					name: '吉大一院',
+					icon: 'circle',
+					textStyle: { color: '#333' }
 				},
 				{
-					name:'吉大二院',
-					icon:'circle',
-					textStyle:{color:'red'}
+					name: '吉大二院',
+					icon: 'circle',
+					textStyle: { color: '#333' }
 				},
 				{
-					name:'吉大三院',
-					icon:'circle',
-					textStyle:{color:'red'}
+					name: '吉大三院',
+					icon: 'circle',
+					textStyle: { color: '#333' }
 				}
 			],
-			// 设置 legend 的位置
 			top: 'bottom',
-			left: 'center'
-		},
-		xAxis:{
-			type:'category',
-			data:['人均费用','住院人次','门诊人数'],
-		},
-		yAxis:{
-			type:'value',
-		},
-		//数据通常放在series属性当中
-		series:[{
-			type:'bar',
-			data:[25,29,60],
-			name:'吉大一院'
-		},{
-			type:'bar',
-			data:[10,45,50],
-			name:'吉大二院'
-		},{
-			type:'bar',
-			data:[55,60,10],
-			name:'吉大三院'
-		}]
-	}
-	mychart.setOption(options)
+			left: 'center',
+			textStyle: {
+				color: '#999'
+			},
+			itemGap: 15,
+			itemWidth: 10,
+			itemHeight: 10
+		}
+	};
 
+	mychart.setOption(options);
 
-	var mychart=echarts.init(document.getElementById("four"))
-	var options={
-		legend:{
-			data:[
+	var mychart = echarts.init(document.getElementById("four"));
+	var options = {
+		legend: {
+			data: [
 				{
-					name:'中药',
-					icon:'circle',
-					textStyle:{color:'red'}
+					name: '中药',
+					// icon: 'circle',
+					// textStyle: { color: 'red' }
 				},
 				{
-					name:'西药',
-					icon:'circle',
-					textStyle:{color:'red'}
+					name: '西药',
+					// icon: 'circle',
+					// textStyle: { color: 'red' }
 				},
 			],
 			// 设置 legend 的位置
 			top: 'top',
 			left: 'center'
 		},
-		color: ['#546ef3', '#a6cb09', '#f8bd00', '#ff6c00'],
-		tooltip:{
-			triggerOn:'click',
-			trigger:'axis'
+		tooltip: {
+			triggerOn: 'click',
+			trigger: 'axis'
 		},
 		//直角坐标系当中的x轴
-		xAxis:{
+		xAxis: {
 			//类型为种类
-			type:'category',
+			type: 'category',
 			//类别数据要写到类型为种类的轴中
-			data: ['吉大一院', '吉大二院', '吉大三院']
+			data: ['吉大一院', '吉大二院', '吉大三院'],
+			//去掉轴线和刻度线
+			axisLine: {
+				show: false
+			},
+			axisTick: {
+				show: false
+			},
+			//设置轴线上标签的样式
+			axisLabel: {
+				color: '#333'
+			}
 		},
 		//直角坐标系当中的Y轴
-		yAxis:{
+		yAxis: {
 			//类型为值
-			type:'value',
+			type: 'value',
 			// 将纵坐标显示为百分制
 			axisLabel: {
 				formatter: '{value}%'
+			},
+			//去掉轴线和刻度线
+			axisLine: {
+				show: false
+			},
+			axisTick: {
+				show: false
+			},
+			//设置轴线上标签的样式
+			axisLabel: {
+				color: '#333'
 			}
 		},
-		color: ['#546ef3', '#a6cb09', '#f8bd00', '#ff6c00'],
 		//数据通常放在series属性当中
-		series:[
+		series: [
 			{
-				type:'bar',
-				data:[25,29,60],
-				name:'中药',
-				stack: '药品使用'
-			},{
-				type:'bar',
-				data:[75,71,40],
-				name:'西药',
-				stack: '药品使用'
+				type: 'bar',
+				data: [25, 29, 60],
+				name: '中药',
+				stack: '药品使用',
+				//设置柱状图上的文字样式和位置
+				label: {
+					show: true,
+					position: 'top',
+					color: '#333'
+				},
+				//设置柱状图的样式
+				itemStyle: {
+					color: '#546ef3'
+				}
+			}, {
+				type: 'bar',
+				data: [75, 71, 40],
+				name: '西药',
+				stack: '药品使用',
+				//设置柱状图上的文字样式和位置
+				label: {
+					show: true,
+					position: 'top',
+					color: '#333'
+				},
+				//设置柱状图的样式
+				itemStyle: {
+					color: '#a6cb09'
+				}
 			}
 		],
-	}
-	mychart.setOption(options)
+	};
+
+	mychart.setOption(options);
 
 	var mychart = echarts.init(document.getElementById("five"));
 	var options = {
