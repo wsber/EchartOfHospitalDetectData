@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
 <div class="head clearfix">
 
 
@@ -328,21 +329,53 @@
 		//数据通常放在series属性当中
 		series:[{
 			type:'bar',
-			data:[10,29,50],
+			data:[25,29,60],
 			name:'吉大一院'
 		},{
 			type:'bar',
-			data:[10,29,50],
+			data:[10,45,50],
 			name:'吉大二院'
 		},{
 			type:'bar',
-			data:[10,29,50],
+			data:[55,60,10],
 			name:'吉大三院'
 		}]
 	}
 	<!--5.将配置项设置给echarts实例对象-->
 	mychart.setOption(options)
 
+
+
+	var mychart=echarts.init(document.getElementById("four"))
+
+	var options={
+		//直角坐标系当中的x轴
+		xAxis:{
+			//类型为种类
+			type:'category',
+			//类别数据要写到类型为种类的轴中
+			data: ['周一', '周二', '周三']
+		},
+		//直角坐标系当中的Y轴
+		yAxis:{
+			//类型为值
+			type:'value',
+		},
+		//数据通常放在series属性当中
+		series:[{
+			//类型为柱状图
+			type:'bar',
+			showBackground:true,
+			backgroundStyle:{
+				color:'pink'
+			},
+			//数据
+			data: [10,{value:29,itemStyle:{color:'red'}},30]
+		}
+		]
+	}
+	//第五步：将配置项设置给echarts实例对象
+	mychart.setOption(options)
 
 	var mychart = echarts.init(document.getElementById("eight"))
 	var options={
@@ -399,23 +432,23 @@
 		},
 		xAxis:{
 			type:'category',
-			data:['人均费用','住院人次','门诊人数'],
+			data:['8:00','12:00','16:00','20:00'],
 		},
 		yAxis:{
 			type:'value',
 		},
 		//数据通常放在series属性当中
 		series:[{
-			type:'bar',
-			data:[10,29,50],
+			type:'line',
+			data:[10,50,50,10],
 			name:'吉大一院'
 		},{
-			type:'bar',
-			data:[10,29,50],
+			type:'line',
+			data:[20,70,79,60],
 			name:'吉大二院'
 		},{
-			type:'bar',
-			data:[10,29,50],
+			type:'line',
+			data:[30,40,90,60],
 			name:'吉大三院'
 		}]
 	}
@@ -446,9 +479,9 @@
 					    }
 					}]
 				},
-				
+
 		}
-		
+
 		//第五步：将配置项设置给echarts实例对象
 		mychart.setOption(options)
 		}
