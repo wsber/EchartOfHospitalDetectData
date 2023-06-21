@@ -2,458 +2,672 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>长春市医疗数据监控平台</title>
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script src="js/echarts.min.js"></script>
-    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+	<meta charset="utf-8">
+	<title>长春市医院治疗数据监控平台</title>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/echarts.min.js"></script>
+	<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-
-<div class="head clearfix">
-
-
-    <h1 class="pulll_left">长春市医疗数据监控平台</h1>
-    <div class="menu menu2 pulll_left">
-        <ul>
-
-        </ul>
-    </div>
-
-    <div class="time" id="showTime">2018/6/12 17:00:12</div>
-    <script>
-        var t = null;
-        t = setTimeout(time, 1000);//開始运行
-        function time() {
-            clearTimeout(t);//清除定时器
-            dt = new Date();
-            var y = dt.getFullYear();
-            var mt = dt.getMonth() + 1;
-            var day = dt.getDate();
-            var h = dt.getHours();//获取时
-            var m = dt.getMinutes();//获取分
-            var s = dt.getSeconds();//获取秒
-            document.getElementById("showTime").innerHTML = y + "/" + mt + "/" + day + " " + h + ":" + m + ":" + s + "";
-            t = setTimeout(time, 1000); //设定定时器，循环运行
-        }
-
-    </script>
-</div>
-<div class="mainbox">
-
-    <ul class="clearfix nav1">
-        <li style="width: 22%">
-            <div class="box">
-                <div class="tit">版块标题1</div>
-                <div class="boxnav" style="height: 200px;">
-                    <table class="table1" width="100%" border="0" cellspacing="0" cellpadding="0">
-                        <tbody>
-                        <tr>
-                            <th>业务类型</th>
-                            <th>计划完成</th>
-                            <th>实际完成</th>
-                            <th>增长率</th>
+	<div class="head clearfix">
 
 
-                        </tr>
-                        <tr>
-                            <td>类型1</td>
-                            <td><span class="text-w">1000万</span></td>
-                            <td><span class="text-b">900万</span></td>
-                            <td>
-                                <div class="text-d">↑12%</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>类型1</td>
-                            <td><span class="text-w">1000万</span></td>
-                            <td><span class="text-b">900万</span></td>
-                            <td>
-                                <div class="text-s">↓12%</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>类型1</td>
-                            <td><span class="text-w">1000万</span></td>
-                            <td><span class="text-b">900万</span></td>
-                            <td>
-                                <div class="text-d">↑12%</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>类型1</td>
-                            <td><span class="text-w">1000万</span></td>
-                            <td><span class="text-b">900万</span></td>
-                            <td>
-                                <div class="text-s">↓12%</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>类型1</td>
-                            <td><span class="text-w">1000万</span></td>
-                            <td><span class="text-b">900万</span></td>
-                            <td>
-                                <div class="text-d">↑12%</div>
-                            </td>
-                        </tr>
+		<h1 class="pulll_left">长春市医院治疗数据监控平台</h1>
+		<div class="menu menu2 pulll_left">
+			<ul>
 
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="box">
-                <div class="tit">版块标题</div>
-                <div class="boxnav" style="height: 250px;">
-                    <div class="" style="height: 190px" id="seven"></div>
-                    <div class="leidanav">
-                        <ul class="clearfix">
-                            <li><span>文本1</span>
-                                <p>43</p>
-                            </li>
-                            <li><span>文本2</span>
-                                <p>100</p>
-                            </li>
-                            <li><span>文本3</span>
-                                <p>28</p>
-                            </li>
-                            <li><span>文本4</span>
-                                <p>3</p>
-                            </li>
-                            <li><span>文本5</span>
-                                <p>150</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li style="width: 56%">
+			</ul>
+		</div>
 
-            <div class="box">
-                <div class="boxnav mapc" style="height: 550px; position: relative">
-                    <div class="mapnav">
-                        <ul>
-                            <li>
-                                <div><span>数据1</span>
-                                    <p>40%</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div><span>数据2</span>
-                                    <p>12%</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div><span>数据3</span>
-                                    <p>80</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div><span>数据4</span>
-                                    <p>124</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div><span>数据5</span>
-                                    <p>10%</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="mapnav2">
+		<div class="time" id="showTime">2018/6/12 17:00:12</div>
+		<script>
+			var t = null;
+			t = setTimeout(time, 1000);//開始运行
+			function time() {
+				clearTimeout(t);//清除定时器
+				dt = new Date();
+				var y = dt.getFullYear();
+				var mt = dt.getMonth() + 1;
+				var day = dt.getDate();
+				var h = dt.getHours();//获取时
+				var m = dt.getMinutes();//获取分
+				var s = dt.getSeconds();//获取秒
+				document.getElementById("showTime").innerHTML = y + "/" + mt + "/" + day + " " + h + ":" + m + ":" + s + "";
+				t = setTimeout(time, 1000); //设定定时器，循环运行
+			}
 
-                        <div class="box">
-                            <div class="tit">版块标题</div>
-                            <div class="boxnav" style="height: 130px;" id="eight">
+		</script>
+	</div>
+	<div class="mainbox">
 
-                            </div>
-                            <div class="leidanav leidanav3" style="margin-bottom: 15px;">
-                                <ul class="clearfix">
-                                    <li><span>业务笔数</span>
-                                        <p>128</p>
-                                    </li>
-                                    <li><span>业务收益</span>
-                                        <p>100</p>
-                                    </li>
-                                    <li><span>业务笔数</span>
-                                        <p>28</p>
-                                    </li>
-                                    <li><span>业务收益</span>
-                                        <p>28</p>
-                                    </li>
-                                </ul>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="map" id="map">
-
-                        <!-- 表示地图部分 -->
-                    </div>
-                </div>
-            </div>
-
-        </li>
-        <li style="width: 22%">
-
-            <div class="box">
-                <div class="tit">版块标题</div>
-                <div class="boxnav" id="one" style="height: 200px;">
-
-                </div>
-            </div>
-            <div class="box">
-                <div class="tit">版块标题</div>
-                <div class="boxnav" id="two" style="height: 250px;">
-
-                </div>
-            </div>
-
-        </li>
-    </ul>
-
-    <div class="box" style="padding: 20px 0;">
-        <ul class="clearfix nav2 ">
-            <li style="width:25%;height: 200%;" id="six">
-                <div class="tit01">版块标题</div>
-                <div class="" id="">
-                    <div style="float: left; width: 50%; height: 170px" id="fb01"></div>
-                    <div style="float: left; width: 50%; height: 170px" id="fb02"></div>
-
-                </div>
-                <div class="leidanav leidanav2">
-                    <ul class="clearfix">
-                        <li><span>总人数</span>
-                            <p>128</p>
-                        </li>
-                        <li><span>男职员</span>
-                            <p>100</p>
-                        </li>
-                        <li><span>女职员</span>
-                            <p>28</p>
-                        </li>
-
-                    </ul>
-                </div>
-            </li>
-            <li style="width:25%" id="five">
-                <div class="tit01">版块标题</div>
-                <div class="ftechart" id="echart4"></div>
-            </li>
-            <li style="width:25%" id="four">
-                <div class="tit01">版块标题</div>
-                <div class="" style="height:100%;display: flex; align-items: center;">
-                    <div style="float: left; width: 50%; height: 100%" class="wancheng">
-                        <div><span>已完成人数</span>
-                            <h3>1835<i>人</i></h3>
-                        </div>
-                        <div class="yuan">
-                            <span>19%</span>
-                        </div>
-                    </div>
-                    <div style="float: left; width: 50%; height: 50%" id="myd1"></div>
-                </div>
-            </li>
-            <li style="width:25%" id="three">
-
-            </li>
-        </ul>
-    </div>
+		<ul class="clearfix nav1">
+			<li style="width: 22%">
+				<div class="box">
+					<div class="tit">版块标题1</div>
+					<div class="boxnav" style="height: 200px;">
+						<table class="table1" width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tbody>
+								<tr>
+									<th>业务类型</th>
+									<th>计划完成</th>
+									<th>实际完成</th>
+									<th>增长率</th>
 
 
-</div>
+								</tr>
+								<tr>
+									<td>类型1</td>
+									<td><span class="text-w">1000万</span></td>
+									<td><span class="text-b">900万</span></td>
+									<td>
+										<div class="text-d">↑12%</div>
+									</td>
+								</tr>
+								<tr>
+									<td>类型1</td>
+									<td><span class="text-w">1000万</span></td>
+									<td><span class="text-b">900万</span></td>
+									<td>
+										<div class="text-s">↓12%</div>
+									</td>
+								</tr>
+								<tr>
+									<td>类型1</td>
+									<td><span class="text-w">1000万</span></td>
+									<td><span class="text-b">900万</span></td>
+									<td>
+										<div class="text-d">↑12%</div>
+									</td>
+								</tr>
+								<tr>
+									<td>类型1</td>
+									<td><span class="text-w">1000万</span></td>
+									<td><span class="text-b">900万</span></td>
+									<td>
+										<div class="text-s">↓12%</div>
+									</td>
+								</tr>
+								<tr>
+									<td>类型1</td>
+									<td><span class="text-w">1000万</span></td>
+									<td><span class="text-b">900万</span></td>
+									<td>
+										<div class="text-d">↑12%</div>
+									</td>
+								</tr>
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="box">
+					<div class="tit">版块标题</div>
+					<div class="boxnav" style="height: 250px;">
+						<div class="" style="height: 190px" id="seven"></div>
+						<div class="leidanav">
+							<ul class="clearfix">
+								<li><span>文本1</span>
+									<p>43</p>
+								</li>
+								<li><span>文本2</span>
+									<p>100</p>
+								</li>
+								<li><span>文本3</span>
+									<p>28</p>
+								</li>
+								<li><span>文本4</span>
+									<p>3</p>
+								</li>
+								<li><span>文本5</span>
+									<p>150</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li style="width: 56%">
+
+				<div class="box">
+					<div class="boxnav mapc" style="height: 550px; position: relative">
+						<div class="mapnav">
+							<ul>
+								<li>
+									<div><span>数据1</span>
+										<p>40%</p>
+									</div>
+								</li>
+								<li>
+									<div><span>数据2</span>
+										<p>12%</p>
+									</div>
+								</li>
+								<li>
+									<div><span>数据3</span>
+										<p>80</p>
+									</div>
+								</li>
+								<li>
+									<div><span>数据4</span>
+										<p>124</p>
+									</div>
+								</li>
+								<li>
+									<div><span>数据5</span>
+										<p>10%</p>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="mapnav2">
+
+							<div class="box" style=" width: 280px">
+								<div class="tit">各医院就诊人数</div>
+								<div class="boxnav" style="height: 220px ;" id="eight">
+								</div>
+							</div>
+						</div>
+						<div class="map" id="map">
+
+						<!-- 表示地图部分 -->
+						</div>
+					</div>
+				</div>
+
+			</li>
+			<li style="width: 22%">
+
+				<div class="box">
+					<div class="tit">各医院门诊住院费用</div>
+					<div class="boxnav" id="one" style="height: 250px;">
+
+					</div>
+				</div>
+				<div class="box" id="two">
+					<div class="tit">版块标题</div>
+					<div class="boxnav"  id="two" style="height: 250px;">
+
+					</div>
+				</div>
+
+			</li>
+		</ul>
+
+		<div class="box" style="padding: 20px 0;" >
+			<ul class="clearfix nav2 ">
+				<li style="width:25%;height: 200%;" id="six">
+					<div class="tit01">版块标题</div>
+					<div class="" id="">
+						<div style="float: left; width: 50%; height: 170px" id="fb01"></div>
+						<div style="float: left; width: 50%; height: 170px" id="fb02"></div>
+
+					</div>
+					<div class="leidanav leidanav2">
+						<ul class="clearfix">
+							<li><span>总人数</span>
+								<p>128</p>
+							</li>
+							<li><span>男职员</span>
+								<p>100</p>
+							</li>
+							<li><span>女职员</span>
+								<p>28</p>
+							</li>
+
+						</ul>
+					</div>
+				</li>
+				<li style="width:25%" >
+					<div class="tit01">手术工作量</div>
+					<div class="ftechart" id="five"></div>
+				</li>
+				<li style="width:25%" >
+					<div class="tit01">药占比</div>
+					<div class="boxnav" id="four" style="height: 250px;">
+				</li>
+				<li style="width:25%" id="three">
+					<div class="tit01">版块标题</div>
+
+					<div class="" id="">
+						<div style="float: left; width: 50%; height: 200px" id="fb03"></div>
+						<div style="float: left; width: 50%; height: 200px" id="fb04"></div>
+
+					</div>
+
+				</li>
+			</ul>
+		</div>
+
+
+	</div>
+
 </body>
 <script>
-	var mychart = echarts.init(document.getElementById("one"))
-	var options={
-		toolbox:{
-			itemSize:15,
-			feature:{
-				saveAsImage:{},
-				dataView:{},
+	var mychart = echarts.init(document.getElementById("one"));
+
+	var options = {
+		// 调整图表布局
+		grid: {
+			left: '10%',
+			right: '10%',
+			top: '20%',
+			bottom: '20%',
+			backgroundColor: 'transparent'
+		},
+		// 设置工具箱
+		toolbox: {
+			itemSize: 15,
+			feature: {
+				saveAsImage: {},
+				dataView: {},
 				magicType: {
-					type: ['line', 'bar', 'stack']
+					type: ['line', 'stack']
 				},
-				restore:{}
+				restore: {}
 			},
 			top: 0,
 			right: 20,
 			featureTitle: {
-				// 设置 toolbox 标题样式
 				color: '#333',
 				fontWeight: 'bold'
 			}
 		},
-		tooltip:{
-			triggerOn:'click',
-			trigger:'axis'
+		// 设置颜色
+		color: ['#546ef3', '#a6cb09', '#f8bd00'],
+		// 设置提示框
+		tooltip: {
+			trigger: 'axis',
+			axisPointer: {
+				type: 'shadow'
+			},
+			formatter: function(params) {
+				var result = '';
+				for (var i = 0; i < params.length; i++) {
+					result += params[i].seriesName + ': ' + params[i].value + '<br>';
+				}
+				return result;
+			}
 		},
-		grid:{
-			left:'10%',
-			right:'10%',
-			top: '20%', // 将此值从 50 改为 20%
-			bottom: '20%', // 添加底部留白
-			backgroundColor : 'transparent'
+		// 设置 X 轴
+		xAxis: {
+			type: 'category',
+			data: ['人均费用', '住院人次', '门诊人数'],
+			axisLine: {
+				lineStyle: { color: '#ccc' }
+			},
+			axisTick: {
+				show: false
+			},
+			axisLabel: {
+				color: '#999'
+			}
 		},
-		legend:{
-			data:[
+		// 设置 Y 轴
+		yAxis: {
+			type: 'value',
+			axisLine: {
+				lineStyle: { color: '#ccc' }
+			},
+			axisTick: {
+				show: false
+			},
+			axisLabel: {
+				color: '#999'
+			},
+			splitLine: {
+				lineStyle: { color: '#eee' }
+			}
+		},
+		// 设置数据系列
+		series: [
+			{
+				type: 'bar',
+				name: '吉大一院',
+				data: [25, 29, 60],
+				barWidth: 20,
+				itemStyle: {
+					borderRadius:20
+				}
+			},
+			{
+				type: 'bar',
+				name: '吉大二院',
+				data: [10, 45, 50],
+				barWidth: 20,
+				itemStyle: {
+					borderRadius:20
+				}
+			},
+			{
+				type: 'bar',
+				name: '吉大三院',
+				data: [55, 60, 10],
+				barWidth: 20,
+				itemStyle: {
+					borderRadius:20
+				}
+			}
+		],
+		// 设置图例
+		legend: {
+			data: [
 				{
-					name:'吉大一院',
-					icon:'circle',
-					textStyle:{color:'red'}
+					name: '吉大一院',
+					icon: 'circle',
+					textStyle: { color: '#333' }
 				},
 				{
-					name:'吉大二院',
-					icon:'circle',
-					textStyle:{color:'red'}
+					name: '吉大二院',
+					icon: 'circle',
+					textStyle: { color: '#333' }
 				},
 				{
-					name:'吉大三院',
-					icon:'circle',
-					textStyle:{color:'red'}
+					name: '吉大三院',
+					icon: 'circle',
+					textStyle: { color: '#333' }
 				}
 			],
-			// 设置 legend 的位置
 			top: 'bottom',
+			left: 'center',
+			textStyle: {
+				color: '#999'
+			},
+			itemGap: 15,
+			itemWidth: 10,
+			itemHeight: 10
+		}
+	};
+
+	mychart.setOption(options);
+
+	var mychart = echarts.init(document.getElementById("four"));
+	var options = {
+		legend: {
+			data: [
+				{
+					name: '中药',
+					// icon: 'circle',
+					// textStyle: { color: 'red' }
+				},
+				{
+					name: '西药',
+					// icon: 'circle',
+					// textStyle: { color: 'red' }
+				},
+			],
+			// 设置 legend 的位置
+			top: 'top',
 			left: 'center'
 		},
-		xAxis:{
-			type:'category',
-			data:['人均费用','住院人次','门诊人数'],
+		tooltip: {
+			triggerOn: 'click',
+			trigger: 'axis'
 		},
-		yAxis:{
-			type:'value',
-		},
-		//数据通常放在series属性当中
-		series:[{
-			type:'bar',
-			data:[25,29,60],
-			name:'吉大一院'
-		},{
-			type:'bar',
-			data:[10,45,50],
-			name:'吉大二院'
-		},{
-			type:'bar',
-			data:[55,60,10],
-			name:'吉大三院'
-		}]
-	}
-	<!--5.将配置项设置给echarts实例对象-->
-	mychart.setOption(options)
-
-
-
-	var mychart=echarts.init(document.getElementById("four"))
-
-	var options={
 		//直角坐标系当中的x轴
-		xAxis:{
+		xAxis: {
 			//类型为种类
-			type:'category',
+			type: 'category',
 			//类别数据要写到类型为种类的轴中
-			data: ['周一', '周二', '周三']
+			data: ['吉大一院', '吉大二院', '吉大三院'],
+			//去掉轴线和刻度线
+			axisLine: {
+				show: false
+			},
+			axisTick: {
+				show: false
+			},
+			//设置轴线上标签的样式
+			axisLabel: {
+				color: '#333'
+			}
 		},
 		//直角坐标系当中的Y轴
-		yAxis:{
+		yAxis: {
 			//类型为值
-			type:'value',
+			type: 'value',
+			// 将纵坐标显示为百分制
+			axisLabel: {
+				formatter: '{value}%'
+			},
+			//去掉轴线和刻度线
+			axisLine: {
+				show: false
+			},
+			axisTick: {
+				show: false
+			},
+			//设置轴线上标签的样式
+			axisLabel: {
+				color: '#333'
+			}
 		},
 		//数据通常放在series属性当中
-		series:[{
-			//类型为柱状图
-			type:'bar',
-			showBackground:true,
-			backgroundStyle:{
-				color:'pink'
-			},
-			//数据
-			data: [10,{value:29,itemStyle:{color:'red'}},30]
-		}
-		]
-	}
-	//第五步：将配置项设置给echarts实例对象
-	mychart.setOption(options)
-
-	var mychart = echarts.init(document.getElementById("eight"))
-	var options={
-		toolbox:{
-			itemSize:15,
-			feature:{
-				saveAsImage:{},
-				dataView:{},
-				magicType: {
-					type: ['line', 'bar', 'stack']
+		series: [
+			{
+				type: 'bar',
+				data: [25, 29, 60],
+				name: '中药',
+				stack: '药品使用',
+				//设置柱状图上的文字样式和位置
+				label: {
+					show: true,
+					position: 'top',
+					color: '#333'
 				},
-				restore:{}
+				//设置柱状图的样式
+				itemStyle: {
+					color: '#546ef3'
+				}
+			}, {
+				type: 'bar',
+				data: [75, 71, 40],
+				name: '西药',
+				stack: '药品使用',
+				//设置柱状图上的文字样式和位置
+				label: {
+					show: true,
+					position: 'top',
+					color: '#333'
+				},
+				//设置柱状图的样式
+				itemStyle: {
+					color: '#a6cb09'
+				}
+			}
+		],
+	};
+
+	mychart.setOption(options);
+
+	var mychart = echarts.init(document.getElementById("five"));
+	var options = {
+		// 调整图表布局
+		grid: {
+			left: '10%',
+			right: '10%',
+			bottom: '10%',
+			containLabel: true
+		},
+		legend: {
+			// 调整图例样式和位置
+			top: '5%',
+			left: 'center',
+			itemWidth: 10,
+			itemHeight: 10,
+			textStyle: {
+				fontSize: 12
+			},
+			orient: 'horizontal',
+			data: ['吉大一院', '吉大二院', '吉大三院']
+		},
+		series: {
+			type: 'pie',
+			// 美化扇区样式
+			itemStyle: {
+				borderRadius: 4,
+				borderColor: '#fff',
+				borderWidth: 2
+			},
+			// 美化标签样式
+			label: {
+				show: true,
+				formatter: '{b}: {c} ({d}%)',
+				fontSize: 12
+			},
+			// 美化标签线样式
+			labelLine: {
+				show: true,
+				length: 10,
+				length2: 10,
+				smooth: true
+			},
+			// 设置成饼图
+			roseType: 'area',
+			data: [
+				{ value: 20, name: '吉大一院', itemStyle: { color: '#5470c6' } },
+				{ value: 40, name: '吉大二院', itemStyle: { color: '#91cc75' } },
+				{ value: 30, name: '吉大三院', itemStyle: { color: '#fac858' } }
+			]
+		}
+	};
+	mychart.setOption(options);
+
+	var mychart = echarts.init(document.getElementById("eight"));
+	var options = {
+		// 调整图表布局
+		grid: {
+			left: '10%',
+			right: '10%',
+			top: '20%',
+			bottom: '20%',
+			backgroundColor: 'transparent'
+		},
+		// 调整图例样式和位置
+		legend: {
+			top: 'bottom',
+			left: 'center',
+			textStyle: {
+				color: '#999'
+			},
+			itemGap: 15,
+			itemWidth: 10,
+			itemHeight: 10,
+			data: [
+				{
+					name: '吉大一院',
+					icon: 'circle',
+					textStyle: { color: '#333' }
+				},
+				{
+					name: '吉大二院',
+					icon: 'circle',
+					textStyle: { color: '#333' }
+				},
+				{
+					name: '吉大三院',
+					icon: 'circle',
+					textStyle: { color: '#333' }
+				}
+			]
+		},
+		// 设置工具箱
+		toolbox: {
+			itemSize: 15,
+			feature: {
+				saveAsImage: {},
+				dataView: {},
+				magicType: {
+					type: ['bar', 'stack']
+				},
+				restore: {}
 			},
 			top: 0,
 			right: 20,
 			featureTitle: {
-				// 设置 toolbox 标题样式
 				color: '#333',
 				fontWeight: 'bold'
 			}
 		},
-		tooltip:{
-			triggerOn:'click',
-			trigger:'axis'
+		// 设置提示框
+		tooltip: {
+			trigger: 'axis',
+			axisPointer: {
+				type: 'line'
+			}
 		},
-		grid:{
-			left:'10%',
-			right:'10%',
-			top: '20%', // 将此值从 50 改为 20%
-			bottom: '20%', // 添加底部留白
-			backgroundColor : 'transparent'
+		// 设置 X 轴
+		xAxis: {
+			type: 'category',
+			data: ['8:00', '12:00', '16:00', '20:00'],
+			axisLine: {
+				lineStyle: { color: '#ccc' }
+			},
+			axisTick: {
+				show: false
+			},
+			axisLabel: {
+				color: '#999'
+			}
 		},
-		legend:{
-			data:[
-				{
-					name:'吉大一院',
-					icon:'circle',
-					textStyle:{color:'red'}
+		// 设置 Y 轴
+		yAxis: {
+			type: 'value',
+			axisLine: {
+				lineStyle: { color: '#ccc' }
+			},
+			axisTick: {
+				show: false
+			},
+			axisLabel: {
+				color: '#999'
+			},
+			splitLine: {
+				lineStyle: { color: '#eee' }
+			}
+		},
+		// 设置数据系列
+		series: [
+			{
+				type: 'line',
+				name: '吉大一院',
+				data: [10, 50, 50, 10],
+				smooth: true,
+				itemStyle: {
+					borderColor: '#ff6666',
+					borderWidth: 2
 				},
-				{
-					name:'吉大二院',
-					icon:'circle',
-					textStyle:{color:'red'}
+
+			},
+			{
+				type: 'line',
+				name: '吉大二院',
+				data: [20, 70, 79, 60],
+				smooth: true,
+				itemStyle: {
+					borderColor: '#00cc99',
+					borderWidth: 2
 				},
-				{
-					name:'吉大三院',
-					icon:'circle',
-					textStyle:{color:'red'}
-				}
-			],
-			// 设置 legend 的位置
-			top: 'bottom',
-			left: 'center'
-		},
-		xAxis:{
-			type:'category',
-			data:['8:00','12:00','16:00','20:00'],
-		},
-		yAxis:{
-			type:'value',
-		},
-		//数据通常放在series属性当中
-		series:[{
-			type:'line',
-			data:[10,50,50,10],
-			name:'吉大一院'
-		},{
-			type:'line',
-			data:[20,70,79,60],
-			name:'吉大二院'
-		},{
-			type:'line',
-			data:[30,40,90,60],
-			name:'吉大三院'
-		}]
-	}
-	<!--5.将配置项设置给echarts实例对象-->
-	mychart.setOption(options)
+
+			},
+			{
+				type: 'line',
+				name: '吉大三院',
+				data: [30, 40, 90, 60],
+				smooth: true,
+				itemStyle: {
+					borderColor: '#ffcc00',
+					borderWidth: 2
+				},
+			}
+		],
+		// 设置颜色
+		color: ['#546ef3', '#a6cb09', '#f8bd00']
+	};
+	mychart.setOption(options);
+
+
 
 	//第三步：初始化echarts实例对象
 	var mychart=echarts.init(document.getElementById("map"))
